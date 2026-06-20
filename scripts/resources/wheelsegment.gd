@@ -4,10 +4,12 @@ class_name WheelSegment
 
 @export var texture: Texture2D
 ## The texture of the wheel segment.
-@export var static_add_modifier: float
-## A modifier to add (or subtract with negatives) onto the final return
-@export var static_multiply_modifier: float
-## A modifier to multiply (or divide with fractions) onto the final return
+@export var static_add_modifier: float = 0
+## A modifier to add (or subtract with negatives) onto the final return.
+@export var static_multiply_modifier: float = 1
+## A modifier to multiply (or divide with fractions) onto the final return.
+@export var rarity: int = 1
+## How rare/powerful is the wheel segment.
 
 func add_modifier(old_score: float) -> float:
 	var new_score: float = old_score
@@ -20,13 +22,13 @@ func generate_message(old_score: float, new_score: float) -> String:
 	var multiply_string: String = ""
 	var final_string: String = ""
 	if static_add_modifier != 0:
-		add_string = "%+f" % static_add_modifier
-	if static_multiply_modifier != 0:
+		add_string = "%+.2f" % static_add_modifier
+	if static_multiply_modifier != 1 and static_multiply_modifier != 0:
 		if -1 < static_multiply_modifier and static_multiply_modifier < 1:
 			var division_number: float = 1 / static_multiply_modifier
-			multiply_string = "/ %f" % division_number
+			multiply_string = "/ %.2f" % division_number
 		else:
-			multiply_string = "* %f" % static_multiply_modifier
+			multiply_string = "* %.2f" % static_multiply_modifier
 	if add_string == "" and multiply_string == "":
 		final_string = "+0"
 	else:

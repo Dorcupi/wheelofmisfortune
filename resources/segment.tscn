@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://ds8qr71q5tvwy"]
+
+[ext_resource type="Script" uid="uid://mk1enh4jla0s" path="res://scripts/segment.gd" id="1_lsvoa"]
+[ext_resource type="Texture2D" uid="uid://de6ipp2wg00wr" path="res://assets/wheel/segments/test.png" id="1_sheap"]
+
+[node name="Segment" type="Node2D" unique_id=275251851]
+script = ExtResource("1_lsvoa")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2406810]
+position = Vector2(-1.815, -226.715)
+scale = Vector2(0.375, 0.375)
+texture = ExtResource("1_sheap")

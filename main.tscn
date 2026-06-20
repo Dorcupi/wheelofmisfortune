@@ -2,9 +2,17 @@
 
 [ext_resource type="Texture2D" uid="uid://bdsno5rmjavee" path="res://assets/wheel/empty_wheel.png" id="1_0xm2m"]
 [ext_resource type="Shader" uid="uid://dso23k3nf22mg" path="res://shaders/sunburst.gdshader" id="1_lquwl"]
-[ext_resource type="Texture2D" uid="uid://de6ipp2wg00wr" path="res://assets/wheel/segments/test.png" id="2_1bvp3"]
+[ext_resource type="Script" uid="uid://bw2gx8d2k5uwy" path="res://scripts/main.gd" id="1_ycdy4"]
 [ext_resource type="Texture2D" uid="uid://cm2vkqirj4oog" path="res://assets/wheel/center_piece.png" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://ds8qr71q5tvwy" path="res://resources/segment.tscn" id="3_lquwl"]
 [ext_resource type="FontFile" uid="uid://386s7a4jkjck" path="res://assets/fonts/Oi-Regular.ttf" id="4_1bvp3"]
+[ext_resource type="Resource" uid="uid://bghkkfeilvd0" path="res://resources/wheel_segments/+2.tres" id="4_5vw27"]
+[ext_resource type="Resource" uid="uid://bseg1uyk7xajc" path="res://resources/wheel_segments/+3.tres" id="4_7mycd"]
+[ext_resource type="Script" uid="uid://bxn36dbjtdfd6" path="res://scripts/resources/wheelsegment.gd" id="4_272bh"]
+[ext_resource type="Resource" uid="uid://brlt3oneyd0il" path="res://resources/wheel_segments/-0.5.tres" id="6_4c57u"]
+[ext_resource type="Resource" uid="uid://hyv4aqqgwb0w" path="res://resources/wheel_segments/+1.tres" id="6_kek77"]
+[ext_resource type="Resource" uid="uid://bjxyhnpejloq4" path="res://resources/wheel_segments/-1.tres" id="7_dg77c"]
+[ext_resource type="Texture2D" uid="uid://dam5nxd84trcd" path="res://assets/wheel/segments/-2.png" id="9_ycdy4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7mycd"]
 shader = ExtResource("1_lquwl")
@@ -17,6 +25,12 @@ shader_parameter/use_rainbow = false
 shader_parameter/rainbow_speed = 0.5
 shader_parameter/rainbow_opacity = 1.0
 
+[sub_resource type="Resource" id="Resource_xipcs"]
+script = ExtResource("4_272bh")
+texture = ExtResource("9_ycdy4")
+static_add_modifier = -2.0
+metadata/_custom_type_script = "uid://bxn36dbjtdfd6"
+
 [sub_resource type="LabelSettings" id="LabelSettings_o26a8"]
 font = ExtResource("4_1bvp3")
 font_size = 50
@@ -26,7 +40,14 @@ shadow_size = 20
 shadow_color = Color(0, 0, 0, 0.7254902)
 shadow_offset = Vector2(0, 10)
 
-[node name="Node2D" type="Node2D" unique_id=1128234424]
+[node name="Node2D" type="Node2D" unique_id=1128234424 node_paths=PackedStringArray("segment_spots", "spinning_wheel", "money")]
+script = ExtResource("1_ycdy4")
+segment_spots = [NodePath("CanvasLayer/Control/Wheel/Spinning Stuff/Empty Wheel/Piece 6"), NodePath("CanvasLayer/Control/Wheel/Spinning Stuff/Empty Wheel/Piece 1"), NodePath("CanvasLayer/Control/Wheel/Spinning Stuff/Empty Wheel/Piece 2"), NodePath("CanvasLayer/Control/Wheel/Spinning Stuff/Empty Wheel/Piece 3"), NodePath("CanvasLayer/Control/Wheel/Spinning Stuff/Empty Wheel/Piece 4"), NodePath("CanvasLayer/Control/Wheel/Spinning Stuff/Empty Wheel/Piece 5")]
+spinning_wheel = NodePath("CanvasLayer/Control/Wheel/Spinning Stuff")
+money = NodePath("CanvasLayer/Control/Money")
+wheel_max_acceleration_speed = 16.0
+wheel_maximum_time_spinning = 2.0
+wheel_maximum_loops_around = 2
 metadata/_edit_vertical_guides_ = [576.0]
 metadata/_edit_horizontal_guides_ = [324.0]
 
@@ -67,7 +88,7 @@ offset_transform_enabled = true
 offset_transform_position = Vector2(20, 20)
 
 [node name="Wheel Shadow" type="Sprite2D" parent="CanvasLayer/Control/Wheel" unique_id=1965666031]
-modulate = Color(0, 0, 0, 0.7254902)
+modulate = Color(0, 0, 0, 0.42745098)
 position = Vector2(0, 8)
 scale = Vector2(0.404, 0.404)
 texture = ExtResource("1_0xm2m")
@@ -79,58 +100,53 @@ scale = Vector2(0.4, 0.4)
 scale = Vector2(0.99999994, 0.99999994)
 texture = ExtResource("1_0xm2m")
 
-[node name="Piece 1" type="Node2D" parent="CanvasLayer/Control/Wheel/Spinning Stuff/Empty Wheel" unique_id=1889435205]
+[node name="Piece 1" parent="CanvasLayer/Control/Wheel/Spinning Stuff/Empty Wheel" unique_id=275251851 instance=ExtResource("3_lquwl")]
+segmentData = ExtResource("4_5vw27")
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/Wheel/Spinning Stuff/Empty Wheel/Piece 1" unique_id=923269495]
-position = Vector2(-1.815, -226.715)
-scale = Vector2(0.375, 0.375)
-texture = ExtResource("2_1bvp3")
-
-[node name="Piece 2" type="Node2D" parent="CanvasLayer/Control/Wheel/Spinning Stuff/Empty Wheel" unique_id=206612297]
+[node name="Piece 2" parent="CanvasLayer/Control/Wheel/Spinning Stuff/Empty Wheel" unique_id=135374179 instance=ExtResource("3_lquwl")]
 rotation = 1.0471976
+segmentData = ExtResource("4_7mycd")
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/Wheel/Spinning Stuff/Empty Wheel/Piece 2" unique_id=200924579]
-position = Vector2(-1.815, -226.715)
-scale = Vector2(0.375, 0.375)
-texture = ExtResource("2_1bvp3")
-
-[node name="Piece 3" type="Node2D" parent="CanvasLayer/Control/Wheel/Spinning Stuff/Empty Wheel" unique_id=1026316928]
+[node name="Piece 3" parent="CanvasLayer/Control/Wheel/Spinning Stuff/Empty Wheel" unique_id=587732792 instance=ExtResource("3_lquwl")]
 rotation = 2.0943952
+segmentData = ExtResource("6_4c57u")
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/Wheel/Spinning Stuff/Empty Wheel/Piece 3" unique_id=1010273311]
-position = Vector2(-1.815, -226.715)
-scale = Vector2(0.375, 0.375)
-texture = ExtResource("2_1bvp3")
-
-[node name="Piece 4" type="Node2D" parent="CanvasLayer/Control/Wheel/Spinning Stuff/Empty Wheel" unique_id=614748613]
+[node name="Piece 4" parent="CanvasLayer/Control/Wheel/Spinning Stuff/Empty Wheel" unique_id=1962655742 instance=ExtResource("3_lquwl")]
 rotation = 3.1415927
+segmentData = ExtResource("7_dg77c")
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/Wheel/Spinning Stuff/Empty Wheel/Piece 4" unique_id=1106331697]
-position = Vector2(-1.815, -226.715)
-scale = Vector2(0.375, 0.375)
-texture = ExtResource("2_1bvp3")
-
-[node name="Piece 5" type="Node2D" parent="CanvasLayer/Control/Wheel/Spinning Stuff/Empty Wheel" unique_id=985910386]
+[node name="Piece 5" parent="CanvasLayer/Control/Wheel/Spinning Stuff/Empty Wheel" unique_id=19341097 instance=ExtResource("3_lquwl")]
 rotation = 4.1887903
+segmentData = SubResource("Resource_xipcs")
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/Wheel/Spinning Stuff/Empty Wheel/Piece 5" unique_id=970635127]
-position = Vector2(-1.815, -226.715)
-scale = Vector2(0.375, 0.375)
-texture = ExtResource("2_1bvp3")
-
-[node name="Piece 6" type="Node2D" parent="CanvasLayer/Control/Wheel/Spinning Stuff/Empty Wheel" unique_id=1244864747]
+[node name="Piece 6" parent="CanvasLayer/Control/Wheel/Spinning Stuff/Empty Wheel" unique_id=1039274748 instance=ExtResource("3_lquwl")]
 rotation = 5.2359877
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/Wheel/Spinning Stuff/Empty Wheel/Piece 6" unique_id=1102987343]
-position = Vector2(-1.815, -226.715)
-scale = Vector2(0.375, 0.375)
-texture = ExtResource("2_1bvp3")
+segmentData = ExtResource("6_kek77")
 
 [node name="Center Piece" type="Sprite2D" parent="CanvasLayer/Control/Wheel" unique_id=107307800]
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_h2yge")
 
-[node name="Label" type="Label" parent="CanvasLayer/Control" unique_id=1273706835]
+[node name="Button" type="Button" parent="CanvasLayer/Control" unique_id=1307170822]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -139.5
+offset_top = -95.0
+offset_right = 139.5
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0.050980393, 0.11764706, 0.16862746, 1)
+theme_override_constants/outline_size = 32
+theme_override_fonts/font = ExtResource("4_1bvp3")
+theme_override_font_sizes/font_size = 40
+text = "SPIN"
+
+[node name="Money" type="Label" parent="CanvasLayer/Control" unique_id=1273706835]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -141,3 +157,5 @@ text = "$10.00"
 label_settings = SubResource("LabelSettings_o26a8")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="pressed" from="CanvasLayer/Control/Button" to="." method="_on_button_pressed"]
