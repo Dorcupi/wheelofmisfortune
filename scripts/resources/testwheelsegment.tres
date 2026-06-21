@@ -1,7 +1,0 @@
-[gd_resource type="Resource" script_class="WheelSegment" format=3 uid="uid://bdxfxt331qu54"]
-
-[ext_resource type="Script" uid="uid://bxn36dbjtdfd6" path="res://scripts/resources/wheelsegment.gd" id="1_i3y2j"]
-
-[resource]
-script = ExtResource("1_i3y2j")
-metadata/_custom_type_script = "uid://bxn36dbjtdfd6"
