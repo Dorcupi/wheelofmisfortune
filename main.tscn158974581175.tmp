@@ -14,16 +14,10 @@
 [ext_resource type="Resource" uid="uid://hyv4aqqgwb0w" path="res://resources/wheel_segments/+1.tres" id="6_kek77"]
 [ext_resource type="Resource" uid="uid://bjxyhnpejloq4" path="res://resources/wheel_segments/-1.tres" id="7_dg77c"]
 [ext_resource type="Resource" uid="uid://o7a4xv5x35e8" path="res://resources/wheel_segments/-2.tres" id="8_w48qg"]
-[ext_resource type="Texture2D" uid="uid://btxjdu5tc4xed" path="res://assets/dice_small_6.png" id="10_hrvbo"]
-[ext_resource type="Texture2D" uid="uid://duls1fxkohsdi" path="res://assets/dice_small_4.png" id="12_uypp3"]
-[ext_resource type="Texture2D" uid="uid://c15y3llgr5rl2" path="res://assets/dice_small_3.png" id="13_blkrb"]
-[ext_resource type="Texture2D" uid="uid://bss5wx3mmqt8r" path="res://assets/dice_small_2.png" id="14_abqjc"]
 [ext_resource type="Shader" uid="uid://88nesmwbgnqm" path="res://shaders/radial_shine.gdshader" id="14_gngh3"]
-[ext_resource type="Texture2D" uid="uid://cvewwwg8kdted" path="res://assets/dice_small_1.png" id="15_6iyjs"]
 [ext_resource type="Texture2D" uid="uid://bw7q5c0p2qlle" path="res://assets/kenney_game-icons/PNG/White/2x/barsHorizontal.png" id="15_d13ii"]
 [ext_resource type="PackedScene" uid="uid://cu7qex42tbv0x" path="res://resources/shop_item.tscn" id="15_vivmo"]
 [ext_resource type="Resource" uid="uid://b24kgp7u6wabu" path="res://resources/wheel_segments/+4.tres" id="16_getpj"]
-[ext_resource type="Texture2D" uid="uid://c3pe2g0t7fp02" path="res://assets/dice_small_5.png" id="17_0n3wm"]
 [ext_resource type="Resource" uid="uid://cvmy6eqw6e62r" path="res://resources/wheel_segments/+6.tres" id="17_ryguw"]
 [ext_resource type="Resource" uid="uid://duxusce6bky2g" path="res://resources/wheel_segments/+8.tres" id="18_d13ii"]
 [ext_resource type="Resource" uid="uid://sktovyxefk66" path="res://resources/wheel_segments/-3.tres" id="19_1u8w0"]
@@ -61,25 +55,6 @@ shader_parameter/rotation_speed = 0.02
 shader_parameter/use_rainbow = false
 shader_parameter/rainbow_speed = 0.5
 shader_parameter/rainbow_opacity = 1.0
-
-[sub_resource type="Curve" id="Curve_ysgfx"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="LabelSettings" id="LabelSettings_lswn8"]
-font = ExtResource("4_1bvp3")
-font_size = 25
-outline_size = 12
-outline_color = Color(0.050980393, 0.11764706, 0.16862746, 1)
-shadow_size = 3
-shadow_color = Color(0, 0, 0, 0.74509805)
-shadow_offset = Vector2(0, 5)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qtftl"]
-shader = ExtResource("27_qsp4k")
-shader_parameter/mouth_height = 10.000000475
-shader_parameter/talk_speed = 17.50000083125
-shader_parameter/talk_intensity = 0.0
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qtftl"]
 
@@ -184,6 +159,21 @@ _data = {
 &"open": SubResource("Animation_a6jrf")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_lswn8"]
+font = ExtResource("4_1bvp3")
+font_size = 25
+outline_size = 12
+outline_color = Color(0.050980393, 0.11764706, 0.16862746, 1)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.74509805)
+shadow_offset = Vector2(0, 5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qtftl"]
+shader = ExtResource("27_qsp4k")
+shader_parameter/mouth_height = 10.000000475
+shader_parameter/talk_speed = 17.50000083125
+shader_parameter/talk_intensity = 0.0
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o26a8"]
 shader = ExtResource("31_d2t1y")
 shader_parameter/ShakeStrength = 0.0
@@ -279,7 +269,7 @@ _data = {
 &"out": SubResource("Animation_0odxb")
 }
 
-[node name="Node2D" type="Node2D" unique_id=1128234424 node_paths=PackedStringArray("background", "screen_shake", "segment_spots", "shop_items", "spinning_wheel", "wheel_particles", "wheel_particles_2", "transition_player", "side_panel_player", "side_panel", "side_panel_button", "talk_timer", "person_mouth", "talk_label", "money", "talk_player", "scroll_player", "result_player_1", "result_player_2", "result_player_3", "result_player_4", "collect_player_1", "collect_player_2", "transition_audio_player", "transition_back_audio_player", "buy_player_1", "buy_player_2", "spin_counter_spawner", "dice_particles")]
+[node name="Node2D" type="Node2D" unique_id=1128234424 node_paths=PackedStringArray("background", "screen_shake", "segment_spots", "shop_items", "spinning_wheel", "wheel_particles", "wheel_particles_2", "transition_player", "side_panel_player", "side_panel", "side_panel_button", "talk_timer", "person_mouth", "talk_label", "money", "talk_player", "scroll_player", "result_player_1", "result_player_2", "result_player_3", "result_player_4", "collect_player_1", "collect_player_2", "transition_audio_player", "transition_back_audio_player", "buy_player_1", "buy_player_2", "spin_counter_spawner")]
 script = ExtResource("1_ycdy4")
 owned_segments = Array[ExtResource("4_272bh")]([ExtResource("6_kek77"), ExtResource("4_5vw27"), ExtResource("4_7mycd"), ExtResource("6_4c57u"), ExtResource("7_dg77c"), ExtResource("8_w48qg")])
 background = NodePath("CanvasLayer/Control/Background")
@@ -313,7 +303,6 @@ transition_back_audio_player = NodePath("TransitionBackAudioPlayer")
 buy_player_1 = NodePath("BuyPlayer1")
 buy_player_2 = NodePath("BuyPlayer2")
 spin_counter_spawner = NodePath("CanvasLayer/Control/Wheel/SpinCounterSpawner")
-dice_particles = NodePath("CanvasLayer/Control/DiceParticles")
 metadata/_edit_vertical_guides_ = [576.0, 1142.0, 1152.0]
 metadata/_edit_horizontal_guides_ = [324.0]
 
@@ -336,252 +325,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.03129335, 0.099569954, 0.0835458, 1)
-
-[node name="DiceParticles" type="Control" parent="CanvasLayer/Control" unique_id=806744352]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-grow_horizontal = 2
-
-[node name="Dice6" type="CPUParticles2D" parent="CanvasLayer/Control/DiceParticles" unique_id=1011769239]
-position = Vector2(0, -80)
-amount = 10
-texture = ExtResource("10_hrvbo")
-lifetime = 3.0
-randomness = 1.0
-emission_shape = 3
-emission_rect_extents = Vector2(1000, 1)
-spread = 153.99
-gravity = Vector2(0, 490)
-angle_min = -720.0
-angle_max = 720.0
-scale_amount_min = 0.1
-scale_amount_max = 0.3
-scale_amount_curve = SubResource("Curve_ysgfx")
-
-[node name="Dice5" type="CPUParticles2D" parent="CanvasLayer/Control/DiceParticles" unique_id=670916394]
-position = Vector2(0, -80)
-amount = 10
-texture = ExtResource("17_0n3wm")
-lifetime = 3.0
-randomness = 1.0
-emission_shape = 3
-emission_rect_extents = Vector2(1000, 1)
-spread = 153.99
-gravity = Vector2(0, 490)
-angle_min = -720.0
-angle_max = 720.0
-scale_amount_min = 0.1
-scale_amount_max = 0.3
-scale_amount_curve = SubResource("Curve_ysgfx")
-
-[node name="Dice4" type="CPUParticles2D" parent="CanvasLayer/Control/DiceParticles" unique_id=987793385]
-position = Vector2(0, -80)
-amount = 10
-texture = ExtResource("12_uypp3")
-lifetime = 3.0
-randomness = 1.0
-emission_shape = 3
-emission_rect_extents = Vector2(1000, 1)
-spread = 153.99
-gravity = Vector2(0, 490)
-angle_min = -720.0
-angle_max = 720.0
-scale_amount_min = 0.1
-scale_amount_max = 0.3
-scale_amount_curve = SubResource("Curve_ysgfx")
-
-[node name="Dice3" type="CPUParticles2D" parent="CanvasLayer/Control/DiceParticles" unique_id=1735265249]
-position = Vector2(0, -80)
-amount = 10
-texture = ExtResource("13_blkrb")
-lifetime = 3.0
-randomness = 1.0
-emission_shape = 3
-emission_rect_extents = Vector2(1000, 1)
-spread = 153.99
-gravity = Vector2(0, 490)
-angle_min = -720.0
-angle_max = 720.0
-scale_amount_min = 0.1
-scale_amount_max = 0.3
-scale_amount_curve = SubResource("Curve_ysgfx")
-
-[node name="Dice2" type="CPUParticles2D" parent="CanvasLayer/Control/DiceParticles" unique_id=1838372538]
-position = Vector2(0, -80)
-amount = 10
-texture = ExtResource("14_abqjc")
-lifetime = 3.0
-randomness = 1.0
-emission_shape = 3
-emission_rect_extents = Vector2(1000, 1)
-spread = 153.99
-gravity = Vector2(0, 490)
-angle_min = -720.0
-angle_max = 720.0
-scale_amount_min = 0.1
-scale_amount_max = 0.3
-scale_amount_curve = SubResource("Curve_ysgfx")
-
-[node name="Dice1" type="CPUParticles2D" parent="CanvasLayer/Control/DiceParticles" unique_id=2046460128]
-position = Vector2(0, -80)
-amount = 10
-texture = ExtResource("15_6iyjs")
-lifetime = 3.0
-randomness = 1.0
-emission_shape = 3
-emission_rect_extents = Vector2(1000, 1)
-spread = 153.99
-gravity = Vector2(0, 490)
-angle_min = -720.0
-angle_max = 720.0
-scale_amount_min = 0.1
-scale_amount_max = 0.3
-scale_amount_curve = SubResource("Curve_ysgfx")
-
-[node name="PlayerArea" type="Control" parent="CanvasLayer/Control" unique_id=1410526353]
-layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_left = 10.0
-offset_right = 376.0
-grow_vertical = 2
-
-[node name="ThoughBubble" type="Control" parent="CanvasLayer/Control/PlayerArea" unique_id=116047594]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -618.0
-offset_bottom = -245.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/PlayerArea/ThoughBubble" unique_id=1656306544]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("24_0odxb")
-expand_mode = 4
-stretch_mode = 5
-
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/PlayerArea/ThoughBubble" unique_id=1864076396]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 221.00003
-offset_top = 204.00002
-offset_right = 18.50003
-offset_bottom = 204.0
-grow_horizontal = 2
-grow_vertical = 2
-rotation = 0.107321344
-texture = ExtResource("25_kq58d")
-expand_mode = 5
-stretch_mode = 5
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/PlayerArea/ThoughBubble" unique_id=869163130]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 60
-theme_override_constants/margin_right = 60
-
-[node name="Label" type="Label" parent="CanvasLayer/Control/PlayerArea/ThoughBubble/MarginContainer" unique_id=777264897]
-layout_mode = 2
-size_flags_vertical = 1
-label_settings = SubResource("LabelSettings_lswn8")
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-
-[node name="Person" type="Control" parent="CanvasLayer/Control/PlayerArea" unique_id=538394390]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -270.23428
-offset_right = -88.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="Hair Shadow" type="TextureRect" parent="CanvasLayer/Control/PlayerArea/Person" unique_id=1141460534]
-modulate = Color(0, 0, 0, 0.43137255)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -17.0
-offset_top = -10.765717
-offset_right = -17.0
-offset_bottom = -3.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1.1, 1.1)
-texture = ExtResource("28_kq58d")
-expand_mode = 5
-stretch_mode = 6
-
-[node name="Main Shadow" type="TextureRect" parent="CanvasLayer/Control/PlayerArea/Person" unique_id=570970708]
-modulate = Color(0, 0, 0, 0.48235294)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -15.0
-offset_top = -31.765717
-offset_right = -15.0
-offset_bottom = -24.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1.1, 1.1)
-texture = ExtResource("25_a6jrf")
-expand_mode = 5
-stretch_mode = 6
-
-[node name="Main" type="TextureRect" parent="CanvasLayer/Control/PlayerArea/Person" unique_id=1273379280]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("25_a6jrf")
-expand_mode = 5
-stretch_mode = 6
-
-[node name="Mouth" type="TextureRect" parent="CanvasLayer/Control/PlayerArea/Person" unique_id=294655985]
-material = SubResource("ShaderMaterial_qtftl")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("26_xuqvo")
-expand_mode = 5
-stretch_mode = 6
-
-[node name="Hair" type="TextureRect" parent="CanvasLayer/Control/PlayerArea/Person" unique_id=854007722]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("28_kq58d")
-expand_mode = 5
-stretch_mode = 6
 
 [node name="Wheel" type="Control" parent="CanvasLayer/Control" unique_id=505192751]
 layout_mode = 1
@@ -749,7 +492,7 @@ anchor_right = 1.0
 offset_top = 20.0
 offset_bottom = 96.0
 grow_horizontal = 2
-text = "$0.00"
+text = "$10.00"
 label_settings = SubResource("LabelSettings_o26a8")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -936,6 +679,149 @@ grow_vertical = 2
 
 [node name="SidePanelPlayer" type="AnimationPlayer" parent="CanvasLayer/Control/SidePanel" unique_id=611790821]
 libraries/ = SubResource("AnimationLibrary_xuqvo")
+
+[node name="PlayerArea" type="Control" parent="CanvasLayer/Control" unique_id=1410526353]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_right = 376.0
+grow_vertical = 2
+
+[node name="ThoughBubble" type="Control" parent="CanvasLayer/Control/PlayerArea" unique_id=116047594]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -618.0
+offset_bottom = -245.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/PlayerArea/ThoughBubble" unique_id=1656306544]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("24_0odxb")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/PlayerArea/ThoughBubble" unique_id=1864076396]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 221.00003
+offset_top = 204.00002
+offset_right = 18.50003
+offset_bottom = 204.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.107321344
+texture = ExtResource("25_kq58d")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/PlayerArea/ThoughBubble" unique_id=869163130]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_right = 60
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/PlayerArea/ThoughBubble/MarginContainer" unique_id=777264897]
+layout_mode = 2
+size_flags_vertical = 1
+label_settings = SubResource("LabelSettings_lswn8")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Person" type="Control" parent="CanvasLayer/Control/PlayerArea" unique_id=538394390]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -270.23428
+offset_right = -88.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Hair Shadow" type="TextureRect" parent="CanvasLayer/Control/PlayerArea/Person" unique_id=1141460534]
+modulate = Color(0, 0, 0, 0.43137255)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -17.0
+offset_top = -10.765717
+offset_right = -17.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("28_kq58d")
+expand_mode = 5
+stretch_mode = 6
+
+[node name="Main Shadow" type="TextureRect" parent="CanvasLayer/Control/PlayerArea/Person" unique_id=570970708]
+modulate = Color(0, 0, 0, 0.48235294)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -15.0
+offset_top = -31.765717
+offset_right = -15.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("25_a6jrf")
+expand_mode = 5
+stretch_mode = 6
+
+[node name="Main" type="TextureRect" parent="CanvasLayer/Control/PlayerArea/Person" unique_id=1273379280]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("25_a6jrf")
+expand_mode = 5
+stretch_mode = 6
+
+[node name="Mouth" type="TextureRect" parent="CanvasLayer/Control/PlayerArea/Person" unique_id=294655985]
+material = SubResource("ShaderMaterial_qtftl")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("26_xuqvo")
+expand_mode = 5
+stretch_mode = 6
+
+[node name="Hair" type="TextureRect" parent="CanvasLayer/Control/PlayerArea/Person" unique_id=854007722]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("28_kq58d")
+expand_mode = 5
+stretch_mode = 6
 
 [node name="TransitionLayer" type="ColorRect" parent="CanvasLayer" unique_id=1206699556]
 material = ExtResource("22_ryguw")

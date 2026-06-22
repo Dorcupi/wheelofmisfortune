@@ -12,11 +12,15 @@ enum PURCHASING_STATE {
 	GOOD,
 	BAD
 }
+const SPIN_COUNTER = preload("res://resources/spin_counter.tscn")
 @export var owned_segments: Array[WheelSegment]
 @export var background: ColorRect
+@export var screen_shake: ColorRect
 @export var segment_spots: Array[Segment]
 @export var shop_items: Array[ShopItem]
 @export var spinning_wheel: Node2D
+@export var wheel_particles: CPUParticles2D
+@export var wheel_particles_2: CPUParticles2D
 @export var transition_player: AnimationPlayer
 @export var side_panel_player: AnimationPlayer
 @export var side_panel: Control
@@ -41,6 +45,10 @@ enum PURCHASING_STATE {
 @export var collect_player_2: AudioStreamPlayer
 @export var transition_audio_player: AudioStreamPlayer
 @export var transition_back_audio_player: AudioStreamPlayer
+@export var buy_player_1: AudioStreamPlayer
+@export var buy_player_2: AudioStreamPlayer
+@export var spin_counter_spawner: Node2D
+@export var dice_particles: Control
 var side_panel_open: bool = false
 var wheel_current_speed: float
 var is_spinning: bool = false
@@ -49,21 +57,33 @@ var can_buy: bool = true
 var current_segment: Segment
 var spinning_state: SPINNING_STATE
 var is_talking: bool = false
+var is_shaking: bool = false
 var game_state: GAME_STATE = GAME_STATE.GAMBLING:
 	set(new_value):
 		game_state = new_value
 		if new_value == GAME_STATE.GAMBLING:
 			background.material.set_shader_parameter("color1", Color("#220f10"))
 			background.material.set_shader_parameter("color2", Color("#371219"))
+			wheel_particles.color = Color("#d26c7c")
+			wheel_particles_2.color = Color("#7e3542")
 		if new_value == GAME_STATE.PURCHASING:
 			background.material.set_shader_parameter("color1", Color("#081a0a"))
 			background.material.set_shader_parameter("color2", Color("#0a2712"))
+			wheel_particles.color = Color("48b566ff")
+			wheel_particles_2.color = Color("276839ff")
 var purchasing_state: PURCHASING_STATE
 var segment_goal: int
 var segment_angle_goal: float
 var segment_angle_away: float
 var time_to_spin: float
-var score: float = 12.50
+var money_label_tween: Tween
+var need_to_update_label: bool = true
+var tweening_label: bool = false
+var first_time_label_tweening: bool = true
+var score: float = 12.50:
+	set(new_value):
+		score = new_value
+		need_to_update_label = true
 var rarity_passes: int = 0
 var bad_items_storage: Array[WheelSegment]
 var regular_items_storage: Array[WheelSegment]
@@ -73,9 +93,16 @@ func _ready() -> void:
 		i.connect("purchase_item", buy_item)
 
 func _physics_process(delta: float) -> void:
+	for i in dice_particles.get_children():
+		if i is CPUParticles2D:
+			i.emission_rect_extents  = Vector2(get_viewport().get_visible_rect().size.x, 1)
 	match game_state:
 		GAME_STATE.GAMBLING:
-			money.text = "$%.2f" % score
+			if need_to_update_label and not tweening_label:
+				stop_money_label(false)
+				update_money_label()
+			elif not tweening_label:
+				money.text = "$%.2f" % score
 		GAME_STATE.PURCHASING:
 			money.text = "SPIN TO GET!"
 	if not is_spinning:
@@ -86,6 +113,7 @@ func _physics_process(delta: float) -> void:
 				wheel_current_speed = lerp(wheel_current_speed, wheel_max_acceleration_speed, 0.1)
 				spinning_wheel.rotate(wheel_current_speed * delta)
 				scroll_player.pitch_scale = lerp(scroll_player.pitch_scale, clampf(wheel_current_speed / wheel_max_acceleration_speed, 0.15, 0.7), 0.1)
+				set_screen_shake_strength(lerp(get_screen_shake_strength(), clampf(wheel_current_speed / wheel_max_acceleration_speed, 0.01, 0.05), 0.1))
 				if is_equal_approx(wheel_current_speed, wheel_max_acceleration_speed):
 					wheel_current_speed = wheel_max_acceleration_speed
 					time_to_spin = randf_range(wheel_minimum_time_spinning, wheel_maximum_time_spinning)
@@ -93,6 +121,7 @@ func _physics_process(delta: float) -> void:
 			SPINNING_STATE.SPINNING:
 				spinning_wheel.rotate(wheel_current_speed * delta)
 				scroll_player.pitch_scale = lerp(scroll_player.pitch_scale, clampf(wheel_current_speed / wheel_max_acceleration_speed, 0.15, 0.7), 0.1)
+				set_screen_shake_strength(lerp(get_screen_shake_strength(), clampf(wheel_current_speed / wheel_max_acceleration_speed, 0.01, 0.05), 0.1))
 				time_to_spin -= delta
 				if time_to_spin <= 0:
 					print("CURRENT ROTATION IS %s" % str(spinning_wheel.rotation))
@@ -105,14 +134,17 @@ func _physics_process(delta: float) -> void:
 			SPINNING_STATE.LANDING:
 				spinning_wheel.rotation = lerp(spinning_wheel.rotation, segment_angle_goal, 0.1)
 				scroll_player.pitch_scale = lerp(scroll_player.pitch_scale, 0.15, 0.1)
+				set_screen_shake_strength(lerp(get_screen_shake_strength(), 0.01, 0.1))
 				# From or and onwards is a safety precaucion if the first half fails
 				if abs(segment_angle_goal - spinning_wheel.rotation) <= 0.005: # or is_equal_approx(spinning_wheel.rotation, segment_angle_goal):
 					spinning_wheel.rotation = fmod(spinning_wheel.rotation,(2 * PI))
 					is_spinning = false
 					scroll_player.stop()
+					stop_screen_shake()
 					match game_state:
 						GAME_STATE.GAMBLING:
 							make_person_talk(2, apply_effect(current_segment.segmentData))
+							current_segment.start_shine()
 						GAME_STATE.PURCHASING:
 							owned_segments.append(current_segment.segmentData)
 							print("ADDED SEGMENT TO OWNED SEGMENTS")
@@ -120,6 +152,8 @@ func _physics_process(delta: float) -> void:
 							collect_player_2.play()
 							if purchasing_state == PURCHASING_STATE.GOOD:
 								can_spin = false
+								wheel_particles.emitting = true
+								await collect_player_2.finished
 								transition_player.play("out")
 								transition_audio_player.play()
 								await transition_player.animation_finished
@@ -134,6 +168,8 @@ func _physics_process(delta: float) -> void:
 								can_spin = true
 							else:
 								can_spin = false
+								wheel_particles_2.emitting = true
+								await collect_player_2.finished
 								transition_player.play("out")
 								transition_audio_player.play()
 								await transition_player.animation_finished
@@ -150,6 +186,31 @@ func _physics_process(delta: float) -> void:
 								can_spin = true
 								can_buy = true
 
+func update_money_label() -> void:
+	if money and money.text:
+		var current_money: float = float(money.text.replace("$", ""))
+		money_label_tween = get_tree().create_tween()
+		var time: float = 1
+		if first_time_label_tweening:
+			time = 2.5
+			first_time_label_tweening = false
+		money_label_tween.tween_method(set_money_label, current_money, score, time).set_trans(Tween.TRANS_EXPO)
+		money_label_tween.tween_callback(stop_money_label.bind(true))
+		tweening_label = true
+		need_to_update_label = false
+		
+
+func set_money_label(a_money: float) -> void:
+	money.text = "$%.2f" % a_money
+
+func stop_money_label(to_set: bool) -> void:
+	if money_label_tween:
+		money_label_tween.kill()
+	tweening_label = false
+	need_to_update_label = false
+	if money and money.text and to_set:
+		money.text = "$%.2f" % score
+
 func buy_item(good_items, bad_items, price) -> void:
 	var good_clone: Array = good_items.duplicate()
 	for i in good_clone:
@@ -162,12 +223,17 @@ func buy_item(good_items, bad_items, price) -> void:
 	if not is_spinning and can_buy and not (good_items.is_empty() and bad_items.is_empty()):
 		if score >= price:
 			score -= price
+			buy_player_1.play()
+			buy_player_2.play()
 			print("TRYING TO BUY SOMETHING THAT COSTS %.2f" % price)
 			can_spin = false
 			can_buy = false
 			transition_player.play("out")
 			transition_audio_player.play()
 			await transition_player.animation_finished
+			for i in segment_spots:
+				i.instant_stop_shine()
+			stop_money_label(true)
 			side_panel.visible = false
 			side_panel_button.visible = false
 			game_state = GAME_STATE.PURCHASING
@@ -219,6 +285,8 @@ func init_purchasing_wheel(items: Array[WheelSegment]) -> void:
 			current_position += 1
 
 func spin() -> void:
+	for i in segment_spots:
+		i.stop_shine()
 	current_segment = segment_spots.pick_random()
 	segment_goal = segment_spots.find(current_segment)
 	print("GOING TO SEGMENT " + str(segment_goal))
@@ -229,6 +297,7 @@ func spin() -> void:
 	is_spinning = true
 	scroll_player.pitch_scale = 0.15
 	scroll_player.play()
+	start_screen_shake(0.01)
 	print("STARTING SPIN")
 
 func apply_effect(segment: WheelSegment) -> String:
@@ -237,9 +306,12 @@ func apply_effect(segment: WheelSegment) -> String:
 	if data.is_benefitial:
 		result_player_2.play()
 		result_player_4.play()
+		wheel_particles.emitting = true
 	else:
 		result_player_1.play()
 		result_player_3.play()
+		wheel_particles_2.emitting = true
+	summon_counters(data.message)
 	return data.message
 
 func segment_check() -> bool:
@@ -323,3 +395,32 @@ func _on_audio_stream_player_finished() -> void:
 func _on_scroll_player_finished() -> void:
 	if is_spinning:
 		scroll_player.play()
+
+func start_screen_shake(strength: float) -> void:
+	screen_shake.material.set_shader_parameter("ShakeStrength", strength)
+	is_shaking = true
+
+func set_screen_shake_strength(strength: float) -> void:
+	if is_shaking: screen_shake.material.set_shader_parameter("ShakeStrength", strength)
+
+func get_screen_shake_strength() -> float:
+	if is_shaking:
+		return screen_shake.material.get_shader_parameter("ShakeStrength")
+	else:
+		return 0
+
+func stop_screen_shake() -> void:
+	screen_shake.material.set_shader_parameter("ShakeStrength", 0)
+	is_shaking = false
+
+func summon_counter(message: String):
+	var instance: Node = SPIN_COUNTER.instantiate()
+	spin_counter_spawner.add_child(instance)
+	instance.owner = spin_counter_spawner
+	instance.position = Vector2(randf_range(-250.0, 250.0), randf_range(100.0, -200.0))
+	instance.change = message
+	
+func summon_counters(message: String):
+	var parts: PackedStringArray = message.split(" ", false, 2)
+	for i in parts:
+		summon_counter(i)

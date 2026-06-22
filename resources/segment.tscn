@@ -2,11 +2,33 @@
 
 [ext_resource type="Script" uid="uid://mk1enh4jla0s" path="res://scripts/segment.gd" id="1_lsvoa"]
 [ext_resource type="Texture2D" uid="uid://de6ipp2wg00wr" path="res://assets/wheel/segments/test.png" id="1_sheap"]
+[ext_resource type="Shader" uid="uid://5a34wvx8n6ts" path="res://shaders/shine.gdshader" id="2_dgrd7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dgrd7"]
+resource_local_to_scene = true
+shader = ExtResource("2_dgrd7")
+shader_parameter/shine_color = Color(1, 1, 1, 0.6901961)
+shader_parameter/shine_angle = 45.0
+shader_parameter/shine_speed = 0.39999999105920003
+shader_parameter/shine_delay = 0.0
+shader_parameter/shine_reverse = false
+shader_parameter/Line_Width = 0.09
+shader_parameter/Line_Smoothness = 0.045
+shader_parameter/Brightness = 0.0
+shader_parameter/Distortion = 2.0
+shader_parameter/LensStrength = 0.0
 
 [node name="Segment" type="Node2D" unique_id=275251851]
 script = ExtResource("1_lsvoa")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2406810]
+material = SubResource("ShaderMaterial_dgrd7")
 position = Vector2(-1.815, -226.715)
 scale = Vector2(0.375, 0.375)
 texture = ExtResource("1_sheap")
+
+[node name="ShineTimer" type="Timer" parent="." unique_id=705566628]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="ShineTimer" to="." method="_on_shine_timer_timeout"]

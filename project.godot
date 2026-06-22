@@ -14,6 +14,10 @@ config/name="Wheel of Misfortune"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://dudinid7opg2l"
+
 [autoload]
 
 Screenshots="*uid://bljdk7ctqona7"
@@ -25,7 +29,7 @@ window/stretch/aspect="expand"
 
 [editor]
 
-movie_writer/video_quality=0.9
+movie_writer/video_quality=1.0
 movie_writer/movie_file="C:/Users/dvy/Documents/seriousgamejamgame/recorded_videos/video.ogv"
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
