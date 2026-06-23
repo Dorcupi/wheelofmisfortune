@@ -50,6 +50,7 @@
 [ext_resource type="AudioStream" uid="uid://b12htfgd3wckl" path="res://assets/sounds/sergioproductions-cash-register-537208.mp3" id="40_d2t1y"]
 [ext_resource type="AudioStream" uid="uid://eduptbsknae8" path="res://assets/sounds/Whoosh 2.mp3" id="41_0cp0l"]
 [ext_resource type="AudioStream" uid="uid://fm2q85fsgv0w" path="res://assets/sounds/Whoosh 4.mp3" id="42_0cp0l"]
+[ext_resource type="AudioStream" uid="uid://da1wl4opjd5wg" path="res://assets/sounds/kenney_music-jingles/Audio/Pizzicato jingles/jingles_PIZZI12.ogg" id="49_uypp3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7mycd"]
 shader = ExtResource("1_lquwl")
@@ -69,6 +70,7 @@ point_count = 2
 [sub_resource type="LabelSettings" id="LabelSettings_lswn8"]
 font = ExtResource("4_1bvp3")
 font_size = 25
+font_color = Color(1, 0.9529412, 0.85490197, 1)
 outline_size = 12
 outline_color = Color(0.050980393, 0.11764706, 0.16862746, 1)
 shadow_size = 3
@@ -87,7 +89,7 @@ shader_parameter/talk_intensity = 0.0
 shader = ExtResource("14_gngh3")
 shader_parameter/shine_num = 10.0
 shader_parameter/rotation_speed = 3.0
-shader_parameter/light_magnitude = 1.0
+shader_parameter/light_magnitude = 2.0
 shader_parameter/filter_distence = 1.0
 shader_parameter/filter_magnitude = 1.0
 shader_parameter/filter_minv = 0.75
@@ -108,6 +110,7 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_o26a8"]
 font = ExtResource("4_1bvp3")
 font_size = 50
+font_color = Color(1, 0.9529412, 0.85490197, 1)
 outline_size = 40
 outline_color = Color(0.050980393, 0.11764706, 0.16862746, 1)
 shadow_size = 20
@@ -118,9 +121,20 @@ shadow_offset = Vector2(0, 10)
 bg_color = Color(1, 1, 1, 0.08235294)
 corner_detail = 20
 
+[sub_resource type="LabelSettings" id="LabelSettings_hrvbo"]
+font = ExtResource("4_1bvp3")
+font_size = 37
+font_color = Color(1, 0.9529412, 0.85490197, 1)
+outline_size = 35
+outline_color = Color(0.050980393, 0.11764706, 0.16862746, 1)
+shadow_size = 20
+shadow_color = Color(0, 0, 0, 0.7254902)
+shadow_offset = Vector2(0, 10)
+
 [sub_resource type="LabelSettings" id="LabelSettings_w48qg"]
 font = ExtResource("4_1bvp3")
 font_size = 34
+font_color = Color(1, 0.9529412, 0.85490197, 1)
 outline_size = 37
 outline_color = Color(0.050980393, 0.11764706, 0.16862746, 1)
 shadow_size = 20
@@ -279,7 +293,7 @@ _data = {
 &"out": SubResource("Animation_0odxb")
 }
 
-[node name="Node2D" type="Node2D" unique_id=1128234424 node_paths=PackedStringArray("background", "screen_shake", "segment_spots", "shop_items", "spinning_wheel", "wheel_particles", "wheel_particles_2", "transition_player", "side_panel_player", "side_panel", "side_panel_button", "talk_timer", "person_mouth", "talk_label", "money", "talk_player", "scroll_player", "result_player_1", "result_player_2", "result_player_3", "result_player_4", "collect_player_1", "collect_player_2", "transition_audio_player", "transition_back_audio_player", "buy_player_1", "buy_player_2", "spin_counter_spawner", "dice_particles")]
+[node name="Node2D" type="Node2D" unique_id=1128234424 node_paths=PackedStringArray("background", "screen_shake", "segment_spots", "shop_items", "spinning_wheel", "wheel_particles", "wheel_particles_2", "transition_player", "side_panel_player", "side_panel", "side_panel_button", "talk_timer", "person_mouth", "talk_label", "money", "talk_player", "scroll_player", "result_player_1", "result_player_2", "result_player_3", "result_player_4", "collect_player_1", "collect_player_2", "transition_audio_player", "transition_back_audio_player", "buy_player_1", "buy_player_2", "delete_slice_player_1", "delete_slice_player_2", "spin_counter_spawner", "dice_particles", "shop_box_container")]
 script = ExtResource("1_ycdy4")
 owned_segments = Array[ExtResource("4_272bh")]([ExtResource("6_kek77"), ExtResource("4_5vw27"), ExtResource("4_7mycd"), ExtResource("6_4c57u"), ExtResource("7_dg77c"), ExtResource("8_w48qg")])
 background = NodePath("CanvasLayer/Control/Background")
@@ -312,8 +326,11 @@ transition_audio_player = NodePath("TransitionAudioPlayer")
 transition_back_audio_player = NodePath("TransitionBackAudioPlayer")
 buy_player_1 = NodePath("BuyPlayer1")
 buy_player_2 = NodePath("BuyPlayer2")
+delete_slice_player_1 = NodePath("DeleteSlicePlayer1")
+delete_slice_player_2 = NodePath("DeleteSlicePlayer2")
 spin_counter_spawner = NodePath("CanvasLayer/Control/Wheel/SpinCounterSpawner")
 dice_particles = NodePath("CanvasLayer/Control/DiceParticles")
+shop_box_container = NodePath("CanvasLayer/Control/SidePanel/Animate/SplitContainer/Shop/MarginContainer/VBoxContainer")
 metadata/_edit_vertical_guides_ = [576.0, 1142.0, 1152.0]
 metadata/_edit_horizontal_guides_ = [324.0]
 
@@ -326,6 +343,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="Background" type="ColorRect" parent="CanvasLayer/Control" unique_id=1039752380]
 material = SubResource("ShaderMaterial_7mycd")
@@ -335,6 +353,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0.03129335, 0.099569954, 0.0835458, 1)
 
 [node name="DiceParticles" type="Control" parent="CanvasLayer/Control" unique_id=806744352]
@@ -346,7 +365,7 @@ grow_horizontal = 2
 
 [node name="Dice6" type="CPUParticles2D" parent="CanvasLayer/Control/DiceParticles" unique_id=1011769239]
 position = Vector2(0, -80)
-amount = 10
+amount = 1
 texture = ExtResource("10_hrvbo")
 lifetime = 3.0
 randomness = 1.0
@@ -362,7 +381,7 @@ scale_amount_curve = SubResource("Curve_ysgfx")
 
 [node name="Dice5" type="CPUParticles2D" parent="CanvasLayer/Control/DiceParticles" unique_id=670916394]
 position = Vector2(0, -80)
-amount = 10
+amount = 1
 texture = ExtResource("17_0n3wm")
 lifetime = 3.0
 randomness = 1.0
@@ -378,7 +397,7 @@ scale_amount_curve = SubResource("Curve_ysgfx")
 
 [node name="Dice4" type="CPUParticles2D" parent="CanvasLayer/Control/DiceParticles" unique_id=987793385]
 position = Vector2(0, -80)
-amount = 10
+amount = 1
 texture = ExtResource("12_uypp3")
 lifetime = 3.0
 randomness = 1.0
@@ -394,7 +413,7 @@ scale_amount_curve = SubResource("Curve_ysgfx")
 
 [node name="Dice3" type="CPUParticles2D" parent="CanvasLayer/Control/DiceParticles" unique_id=1735265249]
 position = Vector2(0, -80)
-amount = 10
+amount = 1
 texture = ExtResource("13_blkrb")
 lifetime = 3.0
 randomness = 1.0
@@ -410,7 +429,7 @@ scale_amount_curve = SubResource("Curve_ysgfx")
 
 [node name="Dice2" type="CPUParticles2D" parent="CanvasLayer/Control/DiceParticles" unique_id=1838372538]
 position = Vector2(0, -80)
-amount = 10
+amount = 1
 texture = ExtResource("14_abqjc")
 lifetime = 3.0
 randomness = 1.0
@@ -426,7 +445,7 @@ scale_amount_curve = SubResource("Curve_ysgfx")
 
 [node name="Dice1" type="CPUParticles2D" parent="CanvasLayer/Control/DiceParticles" unique_id=2046460128]
 position = Vector2(0, -80)
-amount = 10
+amount = 1
 texture = ExtResource("15_6iyjs")
 lifetime = 3.0
 randomness = 1.0
@@ -598,6 +617,7 @@ grow_horizontal = 2
 grow_vertical = 2
 offset_transform_enabled = true
 offset_transform_position = Vector2(20, 20)
+mouse_filter = 2
 
 [node name="Shine" type="ColorRect" parent="CanvasLayer/Control/Wheel" unique_id=1970054438]
 material = SubResource("ShaderMaterial_ysgfx")
@@ -615,6 +635,7 @@ grow_horizontal = 2
 grow_vertical = 2
 offset_transform_enabled = true
 offset_transform_position = Vector2(-20, -20)
+mouse_filter = 2
 
 [node name="Wheel Stand2" type="TextureRect" parent="CanvasLayer/Control/Wheel" unique_id=1604909148]
 modulate = Color(0, 0, 0, 0.45490196)
@@ -623,6 +644,7 @@ offset_left = -131.0
 offset_top = 44.0
 offset_right = 130.0
 offset_bottom = 305.0
+mouse_filter = 2
 texture = ExtResource("3_w48qg")
 expand_mode = 1
 stretch_mode = 5
@@ -633,6 +655,7 @@ offset_left = -131.0
 offset_top = 38.0
 offset_right = 130.0
 offset_bottom = 299.0
+mouse_filter = 2
 texture = ExtResource("3_w48qg")
 expand_mode = 1
 stretch_mode = 5
@@ -735,6 +758,7 @@ offset_right = 140.0
 offset_bottom = 301.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.9529412, 0.85490197, 1)
 theme_override_colors/font_outline_color = Color(0.050980393, 0.11764706, 0.16862746, 1)
 theme_override_constants/outline_size = 32
 theme_override_fonts/font = ExtResource("4_1bvp3")
@@ -778,6 +802,7 @@ texture = ExtResource("15_d13ii")
 offset = Vector2(83, 83)
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/SidePanelButton" unique_id=705946171]
+modulate = Color(1, 0.9529412, 0.85490197, 1)
 texture = ExtResource("15_d13ii")
 offset = Vector2(83, 83)
 
@@ -868,6 +893,13 @@ label_settings = SubResource("LabelSettings_o26a8")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Slices" type="Label" parent="CanvasLayer/Control/SidePanel/Animate/SplitContainer/Shop/MarginContainer/VBoxContainer" unique_id=467218811]
+layout_mode = 2
+text = "Slices"
+label_settings = SubResource("LabelSettings_hrvbo")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="RarityII" parent="CanvasLayer/Control/SidePanel/Animate/SplitContainer/Shop/MarginContainer/VBoxContainer" unique_id=276746128 instance=ExtResource("15_vivmo")]
 layout_mode = 2
 title = "Rarity II"
@@ -875,6 +907,13 @@ description = "+4, +6, +8, as well as unlucky subtracters like -3, -4, and -5."
 price = 15.0
 good_items = Array[ExtResource("4_272bh")]([ExtResource("16_getpj"), ExtResource("17_ryguw"), ExtResource("18_d13ii")])
 bad_items = Array[ExtResource("4_272bh")]([ExtResource("19_1u8w0"), ExtResource("20_0odxb"), ExtResource("21_lswn8")])
+
+[node name="Upgrades" type="Label" parent="CanvasLayer/Control/SidePanel/Animate/SplitContainer/Shop/MarginContainer/VBoxContainer" unique_id=1849438539]
+layout_mode = 2
+text = "Upgrades"
+label_settings = SubResource("LabelSettings_hrvbo")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Inventory" type="ScrollContainer" parent="CanvasLayer/Control/SidePanel/Animate/SplitContainer" unique_id=996772491]
 layout_mode = 2
@@ -922,6 +961,7 @@ scale = Vector2(0.6, 0.6)
 texture = ExtResource("23_1u8w0")
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/SidePanel/Animate/Control" unique_id=979607281]
+modulate = Color(1, 0.9529412, 0.85490197, 1)
 position = Vector2(30, 30)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("23_1u8w0")
@@ -1015,6 +1055,16 @@ bus = &"Sound Effects"
 [node name="BuyPlayer2" type="AudioStreamPlayer" parent="." unique_id=581654393]
 stream = ExtResource("40_d2t1y")
 volume_db = -10.0
+bus = &"Sound Effects"
+
+[node name="DeleteSlicePlayer1" type="AudioStreamPlayer" parent="." unique_id=515606213]
+stream = ExtResource("49_uypp3")
+volume_db = -10.0
+bus = &"Sound Effects"
+
+[node name="DeleteSlicePlayer2" type="AudioStreamPlayer" parent="." unique_id=34464556]
+stream = ExtResource("35_ok6jj")
+volume_db = -7.5
 bus = &"Sound Effects"
 
 [node name="TransitionAudioPlayer" type="AudioStreamPlayer" parent="." unique_id=1213986745]

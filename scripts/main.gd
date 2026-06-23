@@ -13,6 +13,7 @@ enum PURCHASING_STATE {
 	BAD
 }
 const SPIN_COUNTER = preload("res://resources/spin_counter.tscn")
+const SHOP_UPGRADE = preload("res://resources/shop_upgrade.tscn")
 @export var owned_segments: Array[WheelSegment]
 @export var background: ColorRect
 @export var screen_shake: ColorRect
@@ -47,8 +48,11 @@ const SPIN_COUNTER = preload("res://resources/spin_counter.tscn")
 @export var transition_back_audio_player: AudioStreamPlayer
 @export var buy_player_1: AudioStreamPlayer
 @export var buy_player_2: AudioStreamPlayer
+@export var delete_slice_player_1: AudioStreamPlayer
+@export var delete_slice_player_2: AudioStreamPlayer
 @export var spin_counter_spawner: Node2D
 @export var dice_particles: Control
+@export var shop_box_container: VBoxContainer
 var side_panel_open: bool = false
 var wheel_current_speed: float
 var is_spinning: bool = false
@@ -78,19 +82,59 @@ var segment_angle_away: float
 var time_to_spin: float
 var money_label_tween: Tween
 var need_to_update_label: bool = true
+var need_to_update_dice: bool = true
 var tweening_label: bool = false
 var first_time_label_tweening: bool = true
 var score: float = 12.50:
 	set(new_value):
 		score = new_value
 		need_to_update_label = true
+		need_to_update_dice = true
 var rarity_passes: int = 0
 var bad_items_storage: Array[WheelSegment]
 var regular_items_storage: Array[WheelSegment]
+var purchased_upgrades: Array[Upgrade] = []
+var active_upgrades: Array[Upgrade] = []
+var avaliable_upgrades: Array[Dictionary] = [
+	{
+		"title": "Auto Spin",
+		"description": "Never press the spin button again! After one second, it will spin again!",
+		"price": 100,
+		"upgrade": Upgrade.new(Callable(), Callable(), func ():
+			if game_state == GAME_STATE.GAMBLING and can_spin:
+				var time_left: float = 0.75
+				while time_left >= 0:
+					await get_tree().physics_frame
+					time_left -= get_process_delta_time()
+				if not is_spinning and can_spin and game_state == GAME_STATE.GAMBLING:
+					spin())
+	},
+	{
+		"title": "Never Negative",
+		"description": "Never go into the negatives ever again! If you are going to, you'll just get set to $0 instead!",
+		"price": 25000,
+		"upgrade": Upgrade.new(Callable(), func (data: ScoreUpdate) -> ScoreUpdate:
+			if data.new_score < 0.0:
+				data.new_score = 0.0
+			return data, Callable())
+	}
+]
 
 func _ready() -> void:
 	for i in shop_items:
 		i.connect("purchase_item", buy_item)
+	for i in segment_spots:
+		i.connect("delete_slice", delete_slice)
+	for i in avaliable_upgrades:
+		var instance: Node = SHOP_UPGRADE.instantiate()
+		shop_box_container.add_child(instance)
+		instance.owner = shop_box_container
+		instance.title = i["title"]
+		instance.description = i["description"]
+		instance.price = i["price"]
+		instance.upgrade = i["upgrade"]
+		instance.connect("purchase_item", buy_upgrade)
+		instance.connect("toggle_item", toggle_upgrade)
 
 func _physics_process(delta: float) -> void:
 	for i in dice_particles.get_children():
@@ -103,8 +147,28 @@ func _physics_process(delta: float) -> void:
 				update_money_label()
 			elif not tweening_label:
 				money.text = "$%.2f" % score
+			if need_to_update_dice:
+				for i in dice_particles.get_children():
+					if i is CPUParticles2D:
+						i.emitting = score >= 1.0
+						var max_money: float = 1000000
+						var max_particles: int = 3000
+						var new_amount: float = clamp(score / max_money, 0, 1)
+						new_amount = sqrt(new_amount)
+						new_amount = int(new_amount * max_particles)
+						if new_amount < 1:
+							new_amount = 1
+						if i.amount != new_amount:
+							i.amount = new_amount
+				need_to_update_dice = false
 		GAME_STATE.PURCHASING:
 			money.text = "SPIN TO GET!"
+			for i in dice_particles.get_children():
+				if i is CPUParticles2D:
+					if not i.emitting:
+						i.emitting = true
+					if i.amount != 10:
+						i.amount = 10
 	if not is_spinning:
 		spinning_wheel.rotate(wheel_neutral_spinning_speed * delta)
 	else:
@@ -157,6 +221,8 @@ func _physics_process(delta: float) -> void:
 								transition_player.play("out")
 								transition_audio_player.play()
 								await transition_player.animation_finished
+								for i in segment_spots:
+									i.instant_stop_shine()
 								purchasing_state = PURCHASING_STATE.BAD
 								print("SWITCHED PURCHASING STATE")
 								init_purchasing_wheel(bad_items_storage)
@@ -178,6 +244,7 @@ func _physics_process(delta: float) -> void:
 								game_state = GAME_STATE.GAMBLING
 								print("SWITCHED GAME AND PURCHASING STATES")
 								load_wheel(regular_items_storage)
+								need_to_update_dice = true
 								spinning_wheel.rotation = 0
 								print("INIT WHEEL, TRANSITIONING")
 								transition_player.play("in")
@@ -185,6 +252,9 @@ func _physics_process(delta: float) -> void:
 								await transition_player.animation_finished
 								can_spin = true
 								can_buy = true
+					for i in active_upgrades:
+						if i.after_function: 
+							i.after_function.call()
 
 func update_money_label() -> void:
 	if money and money.text:
@@ -225,7 +295,7 @@ func buy_item(good_items, bad_items, price) -> void:
 			score -= price
 			buy_player_1.play()
 			buy_player_2.play()
-			print("TRYING TO BUY SOMETHING THAT COSTS %.2f" % price)
+			print("TRYING TO BUY SLICE THAT COSTS %.2f" % price)
 			can_spin = false
 			can_buy = false
 			transition_player.play("out")
@@ -284,6 +354,39 @@ func init_purchasing_wheel(items: Array[WheelSegment]) -> void:
 			segment_spots[current_position].segmentData = i
 			current_position += 1
 
+func buy_upgrade(node, upgrade, price) -> void:
+	if not purchased_upgrades.has(upgrade):
+		if score >= price:
+			score -= price
+			buy_player_1.play()
+			buy_player_2.play()
+			print("TRYING TO BUY UPGRADE THAT COSTS %.2f" % price)
+			purchased_upgrades.append(upgrade)
+			node.purchased = true
+			active_upgrades.append(upgrade)
+			node.enabled = true
+		else:
+			printerr("CAN'T BUY, NOT ENOUGH MONEY")
+	else:
+		printerr("CAN'T BUY, ALREADY OWN")
+
+func toggle_upgrade(node, upgrade) -> void:
+	if purchased_upgrades.has(upgrade):
+		if node.enabled:
+			active_upgrades.remove_at(active_upgrades.find(upgrade))
+			node.enabled = false
+			print("UPGRADE TURNED OFF")
+		else:
+			active_upgrades.append(upgrade)
+			node.enabled = true
+			print("UPGRADE TURNED ON")
+
+func delete_slice(node: Node) -> void:
+	delete_slice_player_1.pitch_scale = randf_range(0.95, 1.05)
+	delete_slice_player_1.play()
+	delete_slice_player_2.play(0.15)
+	wheel_particles.emitting = true
+
 func spin() -> void:
 	for i in segment_spots:
 		i.stop_shine()
@@ -302,6 +405,9 @@ func spin() -> void:
 
 func apply_effect(segment: WheelSegment) -> String:
 	var data: ScoreUpdate = segment.generate_update(score)
+	for i in active_upgrades:
+		if i.during_function:
+			data = i.during_function.call(data)
 	score = data.new_score
 	if data.is_benefitial:
 		result_player_2.play()
@@ -323,6 +429,9 @@ func segment_check() -> bool:
 			else:
 				has_segments = false
 				printerr("YOU DON'T OWN THE SEGMENT IN SEGMENT %s" % segment_spots.find(i))
+		else:
+			has_segments = false
+			printerr("YOU DON'T HAVE A SEGMENT IN SEGMENT %s" % segment_spots.find(i))
 	return has_segments
 
 func rarity_check() -> bool:

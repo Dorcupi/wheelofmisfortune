@@ -1,10 +1,10 @@
-[gd_scene format=3 uid="uid://cu7qex42tbv0x"]
+[gd_scene format=3 uid="uid://cs0ech7yxuju0"]
 
-[ext_resource type="Script" uid="uid://lrnctd6mi5a8" path="res://scripts/shop_item.gd" id="1_gu4pi"]
-[ext_resource type="FontFile" uid="uid://386s7a4jkjck" path="res://assets/fonts/Oi-Regular.ttf" id="1_mtdwc"]
+[ext_resource type="Script" uid="uid://cfha5otlhua78" path="res://scripts/shop_upgrade.gd" id="1_1q6ei"]
+[ext_resource type="FontFile" uid="uid://386s7a4jkjck" path="res://assets/fonts/Oi-Regular.ttf" id="2_sbxb4"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_gu4pi"]
-font = ExtResource("1_mtdwc")
+[sub_resource type="LabelSettings" id="LabelSettings_vivmo"]
+font = ExtResource("2_sbxb4")
 font_size = 33
 font_color = Color(1, 0.9529412, 0.85490197, 1)
 outline_size = 26
@@ -14,7 +14,7 @@ shadow_color = Color(0, 0, 0, 0.7254902)
 shadow_offset = Vector2(0, 6.52)
 
 [sub_resource type="LabelSettings" id="LabelSettings_2cqfq"]
-font = ExtResource("1_mtdwc")
+font = ExtResource("2_sbxb4")
 font_size = 13
 font_color = Color(1, 0.9529412, 0.85490197, 1)
 outline_color = Color(0.050980393, 0.11764706, 0.16862746, 1)
@@ -81,18 +81,19 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 corner_detail = 5
 
-[node name="ShopItem" type="VBoxContainer" unique_id=276746128]
+[node name="ShopUpgrade" type="VBoxContainer" unique_id=276746128]
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 9
-script = ExtResource("1_gu4pi")
+script = ExtResource("1_1q6ei")
 
 [node name="Title" type="Label" parent="." unique_id=1359064741]
 layout_mode = 2
-text = "Rarity II"
-label_settings = SubResource("LabelSettings_gu4pi")
+text = "Auto Spin"
+label_settings = SubResource("LabelSettings_vivmo")
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="Description" type="Label" parent="." unique_id=2108262241]
 custom_minimum_size = Vector2(1, 1)
@@ -108,7 +109,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.9529412, 0.85490197, 1)
 theme_override_colors/font_outline_color = Color(0.050980393, 0.11764706, 0.16862746, 1)
 theme_override_constants/outline_size = 15
-theme_override_fonts/font = ExtResource("1_mtdwc")
+theme_override_fonts/font = ExtResource("2_sbxb4")
 theme_override_font_sizes/font_size = 19
 theme_override_styles/normal = SubResource("StyleBoxFlat_yaehf")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_gu4pi")
@@ -116,4 +117,18 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_vnqmk")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_07twt")
 text = "BUY"
 
+[node name="ToggleButton" type="Button" parent="." unique_id=17761582]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.9529412, 0.85490197, 1)
+theme_override_colors/font_outline_color = Color(0.050980393, 0.11764706, 0.16862746, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("2_sbxb4")
+theme_override_font_sizes/font_size = 19
+theme_override_styles/normal = SubResource("StyleBoxFlat_yaehf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gu4pi")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vnqmk")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_07twt")
+text = "TURN ON"
+
 [connection signal="pressed" from="BuyButton" to="." method="_on_buy_button_pressed"]
+[connection signal="pressed" from="ToggleButton" to="." method="_on_toggle_button_pressed"]
