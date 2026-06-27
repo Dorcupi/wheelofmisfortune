@@ -1,0 +1,466 @@
+[gd_scene format=3 uid="uid://bl4st6ocjtdpt"]
+
+[ext_resource type="Script" uid="uid://bdc5bn0pae4ub" path="res://scripts/end_screen.gd" id="1_jpe70"]
+[ext_resource type="Shader" uid="uid://dso23k3nf22mg" path="res://shaders/sunburst.gdshader" id="2_gwht3"]
+[ext_resource type="Texture2D" uid="uid://b3tictgnqhj68" path="res://assets/newspapers/lose/first/FIRST 1.png" id="2_rkolx"]
+[ext_resource type="Texture2D" uid="uid://dh48c4kb74n7p" path="res://assets/newspapers/lose/first/FIRST 2.png" id="3_ggohc"]
+[ext_resource type="Texture2D" uid="uid://btxjdu5tc4xed" path="res://assets/dice_small_6.png" id="3_hmxq4"]
+[ext_resource type="Texture2D" uid="uid://sytx10di4i4k" path="res://assets/newspapers/lose/first/FIRST 3.png" id="4_dygmk"]
+[ext_resource type="Texture2D" uid="uid://c3pe2g0t7fp02" path="res://assets/dice_small_5.png" id="4_eor0d"]
+[ext_resource type="Texture2D" uid="uid://bc0vbue1f4fyh" path="res://assets/newspapers/lose/not_first/NON FIRST 1.png" id="5_l27do"]
+[ext_resource type="Texture2D" uid="uid://duls1fxkohsdi" path="res://assets/dice_small_4.png" id="5_rkolx"]
+[ext_resource type="Texture2D" uid="uid://cit75hg6oilgs" path="res://assets/newspapers/lose/not_first/NON FIRST 2.png" id="6_1178s"]
+[ext_resource type="Texture2D" uid="uid://c15y3llgr5rl2" path="res://assets/dice_small_3.png" id="6_ggohc"]
+[ext_resource type="Texture2D" uid="uid://cjbwvx14atn4b" path="res://assets/newspapers/lose/not_first/NON FIRST 3.png" id="7_7o1nc"]
+[ext_resource type="Texture2D" uid="uid://bss5wx3mmqt8r" path="res://assets/dice_small_2.png" id="7_dygmk"]
+[ext_resource type="Texture2D" uid="uid://cposj4h81kves" path="res://assets/newspapers/lose/either/EITHER 1.png" id="8_3gmqv"]
+[ext_resource type="Texture2D" uid="uid://cvewwwg8kdted" path="res://assets/dice_small_1.png" id="8_l27do"]
+[ext_resource type="Texture2D" uid="uid://cgle826wkqiex" path="res://assets/newspapers/lose/either/EITHER 2.png" id="9_2f236"]
+[ext_resource type="Texture2D" uid="uid://co82oius7n24p" path="res://assets/newspapers/lose/either/EITHER 3.png" id="10_d7kcp"]
+[ext_resource type="Texture2D" uid="uid://dyphdp81iim68" path="res://assets/newspapers/win/WIN 1.png" id="10_jpe70"]
+[ext_resource type="Texture2D" uid="uid://ds3boohd7kbm5" path="res://assets/newspapers/win/WIN 2.png" id="12_dygmk"]
+[ext_resource type="Texture2D" uid="uid://7mgsa82kb602" path="res://assets/newspapers/win/WIN 3.png" id="13_l27do"]
+[ext_resource type="FontFile" uid="uid://386s7a4jkjck" path="res://assets/fonts/Oi-Regular.ttf" id="15_shvsn"]
+[ext_resource type="Material" uid="uid://dyj8eairiftki" path="res://shaders/grid_transition.tres" id="16_c461y"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7vrkn"]
+shader = ExtResource("2_gwht3")
+shader_parameter/color1 = Color(0, 0.042583924, 0.14680794, 1)
+shader_parameter/color2 = Color(0.05882353, 0.07058824, 0.21568628, 1)
+shader_parameter/repeat_amount = 30.0000013775
+shader_parameter/mod_value = 2.0
+shader_parameter/rotation_speed = 0.02
+shader_parameter/use_rainbow = false
+shader_parameter/rainbow_speed = 0.5
+shader_parameter/rainbow_opacity = 1.0
+
+[sub_resource type="Curve" id="Curve_ojb7r"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="LabelSettings" id="LabelSettings_y1pth"]
+font = ExtResource("15_shvsn")
+font_size = 50
+font_color = Color(1, 0.9529412, 0.85490197, 1)
+outline_size = 40
+outline_color = Color(0.050980393, 0.11764706, 0.16862746, 1)
+shadow_size = 20
+shadow_color = Color(0, 0, 0, 0.7254902)
+shadow_offset = Vector2(0, 10)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jpe70"]
+font = ExtResource("15_shvsn")
+font_size = 30
+font_color = Color(1, 0.9529412, 0.85490197, 1)
+outline_size = 20
+outline_color = Color(0.050980393, 0.11764706, 0.16862746, 1)
+shadow_size = 20
+shadow_color = Color(0, 0, 0, 0.7254902)
+shadow_offset = Vector2(0, 5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3xq27"]
+font = ExtResource("15_shvsn")
+font_size = 25
+font_color = Color(1, 0.9529412, 0.85490197, 1)
+outline_size = 15
+outline_color = Color(0.050980393, 0.11764706, 0.16862746, 1)
+shadow_size = 20
+shadow_color = Color(0, 0, 0, 0.7254902)
+shadow_offset = Vector2(0, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dy7ct"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.433302, 0, 0.14407432, 1)
+border_width_left = 4
+border_width_right = 4
+border_color = Color(0.050980393, 0.11764706, 0.16862746, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0o4t1"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.64705884, 0, 0.23137255, 1)
+border_width_left = 4
+border_width_right = 4
+border_color = Color(0.050980393, 0.11764706, 0.16862746, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0k4wn"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.64705884, 0, 0.23137255, 0.7647059)
+border_width_left = 4
+border_width_right = 4
+border_color = Color(0.050980393, 0.11764706, 0.16862746, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j5v2v"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.28235295, 0.1764706, 0.21176471, 0.8980392)
+border_width_left = 4
+border_width_right = 4
+border_color = Color(0.050980393, 0.11764706, 0.16862746, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 5
+
+[sub_resource type="Animation" id="Animation_d13ii"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionLayer:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TransitionLayer:material:shader_parameter/invert")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_1u8w0"]
+resource_name = "in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionLayer:material:shader_parameter/invert")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TransitionLayer:material:shader_parameter/progress")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 90.0]
+}
+
+[sub_resource type="Animation" id="Animation_0odxb"]
+resource_name = "out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionLayer:material:shader_parameter/progress")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 90.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TransitionLayer:material:shader_parameter/invert")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g8g3n"]
+_data = {
+&"RESET": SubResource("Animation_d13ii"),
+&"in": SubResource("Animation_1u8w0"),
+&"out": SubResource("Animation_0odxb")
+}
+
+[node name="Node2D" type="Node2D" unique_id=1675942988 node_paths=PackedStringArray("transition_player", "newspaper", "result_text", "score_text", "time_text", "new_pb_text")]
+script = ExtResource("1_jpe70")
+transition_player = NodePath("TransitionPlayer")
+newspaper = NodePath("CanvasLayer/Control/Control2/Newspaper")
+result_text = NodePath("CanvasLayer/Control/Control/VBoxContainer/ResultText")
+score_text = NodePath("CanvasLayer/Control/Control/VBoxContainer/ScoreText")
+time_text = NodePath("CanvasLayer/Control/Control/VBoxContainer/TimeText")
+new_pb_text = NodePath("CanvasLayer/Control/Control/VBoxContainer/NewPBText")
+lose_first_newspapers = Array[Texture]([ExtResource("2_rkolx"), ExtResource("3_ggohc"), ExtResource("4_dygmk")])
+lose_not_first_newspapers = Array[Texture]([ExtResource("5_l27do"), ExtResource("6_1178s"), ExtResource("7_7o1nc")])
+lose_either_newspapers = Array[Texture]([ExtResource("8_3gmqv"), ExtResource("9_2f236"), ExtResource("10_d7kcp")])
+win_newspapers = Array[Texture]([ExtResource("10_jpe70"), ExtResource("12_dygmk"), ExtResource("13_l27do")])
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=606042480]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1704402988]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="CanvasLayer/Control" unique_id=1438635001]
+material = SubResource("ShaderMaterial_7vrkn")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -566.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.03129335, 0.099569954, 0.0835458, 1)
+
+[node name="DiceParticles" type="Control" parent="CanvasLayer/Control" unique_id=1504804432]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+
+[node name="Dice6" type="CPUParticles2D" parent="CanvasLayer/Control/DiceParticles" unique_id=526776311]
+position = Vector2(0, -80)
+amount = 10
+texture = ExtResource("3_hmxq4")
+lifetime = 3.0
+randomness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(1000, 1)
+spread = 153.99
+gravity = Vector2(0, 490)
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 0.1
+scale_amount_max = 0.3
+scale_amount_curve = SubResource("Curve_ojb7r")
+
+[node name="Dice5" type="CPUParticles2D" parent="CanvasLayer/Control/DiceParticles" unique_id=1589667885]
+position = Vector2(0, -80)
+amount = 10
+texture = ExtResource("4_eor0d")
+lifetime = 3.0
+randomness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(1000, 1)
+spread = 153.99
+gravity = Vector2(0, 490)
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 0.1
+scale_amount_max = 0.3
+scale_amount_curve = SubResource("Curve_ojb7r")
+
+[node name="Dice4" type="CPUParticles2D" parent="CanvasLayer/Control/DiceParticles" unique_id=1102348143]
+position = Vector2(0, -80)
+amount = 10
+texture = ExtResource("5_rkolx")
+lifetime = 3.0
+randomness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(1000, 1)
+spread = 153.99
+gravity = Vector2(0, 490)
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 0.1
+scale_amount_max = 0.3
+scale_amount_curve = SubResource("Curve_ojb7r")
+
+[node name="Dice3" type="CPUParticles2D" parent="CanvasLayer/Control/DiceParticles" unique_id=154984250]
+position = Vector2(0, -80)
+amount = 10
+texture = ExtResource("6_ggohc")
+lifetime = 3.0
+randomness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(1000, 1)
+spread = 153.99
+gravity = Vector2(0, 490)
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 0.1
+scale_amount_max = 0.3
+scale_amount_curve = SubResource("Curve_ojb7r")
+
+[node name="Dice2" type="CPUParticles2D" parent="CanvasLayer/Control/DiceParticles" unique_id=1628931646]
+position = Vector2(0, -80)
+amount = 10
+texture = ExtResource("7_dygmk")
+lifetime = 3.0
+randomness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(1000, 1)
+spread = 153.99
+gravity = Vector2(0, 490)
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 0.1
+scale_amount_max = 0.3
+scale_amount_curve = SubResource("Curve_ojb7r")
+
+[node name="Dice1" type="CPUParticles2D" parent="CanvasLayer/Control/DiceParticles" unique_id=186007350]
+position = Vector2(0, -80)
+amount = 10
+texture = ExtResource("8_l27do")
+lifetime = 3.0
+randomness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(1000, 1)
+spread = 153.99
+gravity = Vector2(0, 490)
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 0.1
+scale_amount_max = 0.3
+scale_amount_curve = SubResource("Curve_ojb7r")
+
+[node name="Control" type="MarginContainer" parent="CanvasLayer/Control" unique_id=1926077886]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -572.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/Control" unique_id=949482041]
+layout_mode = 2
+alignment = 1
+
+[node name="ResultText" type="Label" parent="CanvasLayer/Control/Control/VBoxContainer" unique_id=1265210051]
+layout_mode = 2
+text = "You Won!"
+label_settings = SubResource("LabelSettings_y1pth")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreText" type="Label" parent="CanvasLayer/Control/Control/VBoxContainer" unique_id=1506561094]
+layout_mode = 2
+text = "Score: "
+label_settings = SubResource("LabelSettings_jpe70")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimeText" type="Label" parent="CanvasLayer/Control/Control/VBoxContainer" unique_id=1050078772]
+layout_mode = 2
+text = "Time: "
+label_settings = SubResource("LabelSettings_jpe70")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NewPBText" type="Label" parent="CanvasLayer/Control/Control/VBoxContainer" unique_id=2026873069]
+visible = false
+layout_mode = 2
+text = "New PB!"
+label_settings = SubResource("LabelSettings_3xq27")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayButton" type="Button" parent="CanvasLayer/Control/Control/VBoxContainer" unique_id=1372898364]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.9529412, 0.85490197, 1)
+theme_override_colors/font_outline_color = Color(0.050980393, 0.11764706, 0.16862746, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("15_shvsn")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_dy7ct")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0o4t1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0k4wn")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_j5v2v")
+text = "PLAY AGAIN"
+
+[node name="MainMenuButton" type="Button" parent="CanvasLayer/Control/Control/VBoxContainer" unique_id=720669710]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.9529412, 0.85490197, 1)
+theme_override_colors/font_outline_color = Color(0.050980393, 0.11764706, 0.16862746, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("15_shvsn")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_dy7ct")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0o4t1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0k4wn")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_j5v2v")
+text = "BACK TO MAIN MENU"
+
+[node name="Control2" type="Control" parent="CanvasLayer/Control" unique_id=1682113098]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 593.0
+grow_vertical = 2
+
+[node name="Newspaper" type="TextureRect" parent="CanvasLayer/Control/Control2" unique_id=1578553856]
+layout_mode = 0
+offset_right = 593.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(20, 75)
+offset_transform_rotation = 0.034906585
+texture = ExtResource("10_jpe70")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="TransitionLayer" type="ColorRect" parent="CanvasLayer" unique_id=672418314]
+material = ExtResource("16_c461y")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+color = Color(0.098682486, 0.020091685, 0.03310029, 1)
+
+[node name="TransitionPlayer" type="AnimationPlayer" parent="." unique_id=664832465]
+root_node = NodePath("../CanvasLayer")
+libraries/ = SubResource("AnimationLibrary_g8g3n")
+
+[connection signal="pressed" from="CanvasLayer/Control/Control/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Control/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

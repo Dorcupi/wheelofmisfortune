@@ -5,6 +5,6 @@ uniform float talk_speed : hint_range(0.0, 20.0) = 10.0;
 uniform float talk_intensity : hint_range(0.0, 1.0) = 1.0;
 
 void vertex() {
-    float wave = abs(sin(TIME * talk_speed)) * mouth_height * talk_intensity;
+    float wave = sin(TIME * talk_speed) * mouth_height * talk_intensity;
     VERTEX.y += wave;
 }

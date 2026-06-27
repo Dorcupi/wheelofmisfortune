@@ -1,0 +1,628 @@
+[gd_scene format=3 uid="uid://vay3wmexkmfl"]
+
+[ext_resource type="Shader" uid="uid://dso23k3nf22mg" path="res://shaders/sunburst.gdshader" id="1_06t4h"]
+[ext_resource type="Script" uid="uid://cxhb3v1v7x6xl" path="res://scripts/main_menu.gd" id="1_cm266"]
+[ext_resource type="Shader" uid="uid://88nesmwbgnqm" path="res://shaders/radial_shine.gdshader" id="2_nlkkf"]
+[ext_resource type="Texture2D" uid="uid://btxjdu5tc4xed" path="res://assets/dice_small_6.png" id="2_w44g7"]
+[ext_resource type="Texture2D" uid="uid://c3pe2g0t7fp02" path="res://assets/dice_small_5.png" id="3_cm266"]
+[ext_resource type="Texture2D" uid="uid://baxtyg37pq2su" path="res://assets/wheel/wheel_stand.png" id="3_qe12f"]
+[ext_resource type="Texture2D" uid="uid://bdsno5rmjavee" path="res://assets/wheel/empty_wheel.png" id="4_8qtwp"]
+[ext_resource type="Texture2D" uid="uid://duls1fxkohsdi" path="res://assets/dice_small_4.png" id="4_g8g3n"]
+[ext_resource type="Texture2D" uid="uid://c15y3llgr5rl2" path="res://assets/dice_small_3.png" id="5_8u0te"]
+[ext_resource type="PackedScene" uid="uid://ds8qr71q5tvwy" path="res://resources/segment.tscn" id="5_dy7ct"]
+[ext_resource type="Texture2D" uid="uid://cm2vkqirj4oog" path="res://assets/wheel/center_piece.png" id="6_0o4t1"]
+[ext_resource type="Texture2D" uid="uid://bss5wx3mmqt8r" path="res://assets/dice_small_2.png" id="6_oiatc"]
+[ext_resource type="Texture2D" uid="uid://cvewwwg8kdted" path="res://assets/dice_small_1.png" id="7_mg3m2"]
+[ext_resource type="Texture2D" uid="uid://du61nhrcsg76v" path="res://assets/logo.png" id="7_qe12f"]
+[ext_resource type="FontFile" uid="uid://386s7a4jkjck" path="res://assets/fonts/Oi-Regular.ttf" id="8_8qtwp"]
+[ext_resource type="Material" uid="uid://dyj8eairiftki" path="res://shaders/grid_transition.tres" id="16_g8g3n"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7vrkn"]
+shader = ExtResource("1_06t4h")
+shader_parameter/color1 = Color(0.13333334, 0.05882353, 0.0627451, 1)
+shader_parameter/color2 = Color(0.21568628, 0.07058824, 0.09803922, 1)
+shader_parameter/repeat_amount = 30.0000013775
+shader_parameter/mod_value = 2.0
+shader_parameter/rotation_speed = 0.02
+shader_parameter/use_rainbow = false
+shader_parameter/rainbow_speed = 0.5
+shader_parameter/rainbow_opacity = 1.0
+
+[sub_resource type="Curve" id="Curve_ojb7r"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qtftl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0k4wn"]
+shader = ExtResource("2_nlkkf")
+shader_parameter/shine_num = 10.0
+shader_parameter/rotation_speed = 3.0
+shader_parameter/light_magnitude = 2.0
+shader_parameter/filter_distence = 1.0
+shader_parameter/filter_magnitude = 1.0
+shader_parameter/filter_minv = 0.75
+shader_parameter/cut_inner_radius = 0.1
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/NOISE = SubResource("NoiseTexture2D_qtftl")
+shader_parameter/NOISE_speed = Vector2(0, 0)
+shader_parameter/NOISE_magnitude = 0.10000000475
+
+[sub_resource type="Curve" id="Curve_j5v2v"]
+_data = [Vector2(0, 1), 0.0, -0.5932583, 0, 0, Vector2(1, 0.3595506), -0.26966318, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_iotk1"]
+offsets = PackedFloat32Array(0.45789474, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dy7ct"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.433302, 0, 0.14407432, 1)
+border_width_left = 4
+border_width_right = 4
+border_color = Color(0.050980393, 0.11764706, 0.16862746, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0o4t1"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.64705884, 0, 0.23137255, 1)
+border_width_left = 4
+border_width_right = 4
+border_color = Color(0.050980393, 0.11764706, 0.16862746, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0k4wn"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.64705884, 0, 0.23137255, 0.7647059)
+border_width_left = 4
+border_width_right = 4
+border_color = Color(0.050980393, 0.11764706, 0.16862746, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j5v2v"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.28235295, 0.1764706, 0.21176471, 0.8980392)
+border_width_left = 4
+border_width_right = 4
+border_color = Color(0.050980393, 0.11764706, 0.16862746, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_g8g3n"]
+font = ExtResource("8_8qtwp")
+font_size = 20
+font_color = Color(1, 0.9529412, 0.85490197, 1)
+outline_color = Color(0.050980393, 0.11764706, 0.16862746, 1)
+shadow_size = 20
+shadow_offset = Vector2(0, 10)
+
+[sub_resource type="Animation" id="Animation_d13ii"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionLayer:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TransitionLayer:material:shader_parameter/invert")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_1u8w0"]
+resource_name = "in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionLayer:material:shader_parameter/invert")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TransitionLayer:material:shader_parameter/progress")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 90.0]
+}
+
+[sub_resource type="Animation" id="Animation_0odxb"]
+resource_name = "out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionLayer:material:shader_parameter/progress")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 90.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TransitionLayer:material:shader_parameter/invert")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g8g3n"]
+_data = {
+&"RESET": SubResource("Animation_d13ii"),
+&"in": SubResource("Animation_1u8w0"),
+&"out": SubResource("Animation_0odxb")
+}
+
+[node name="Node2D" type="Node2D" unique_id=1675942988 node_paths=PackedStringArray("dice_particles", "segment_spots", "transition_player", "main", "credits")]
+script = ExtResource("1_cm266")
+dice_particles = NodePath("CanvasLayer/Control/DiceParticles")
+segment_spots = [NodePath("CanvasLayer/Control/Wheel/Spinning Stuff/Empty Wheel/Piece 6"), NodePath("CanvasLayer/Control/Wheel/Spinning Stuff/Empty Wheel/Piece 1"), NodePath("CanvasLayer/Control/Wheel/Spinning Stuff/Empty Wheel/Piece 2"), NodePath("CanvasLayer/Control/Wheel/Spinning Stuff/Empty Wheel/Piece 3"), NodePath("CanvasLayer/Control/Wheel/Spinning Stuff/Empty Wheel/Piece 4"), NodePath("CanvasLayer/Control/Wheel/Spinning Stuff/Empty Wheel/Piece 5")]
+transition_player = NodePath("TransitionPlayer")
+main = NodePath("CanvasLayer/Control/Main")
+credits = NodePath("CanvasLayer/Control/Credits")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=606042480]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1704402988]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="CanvasLayer/Control" unique_id=1438635001]
+material = SubResource("ShaderMaterial_7vrkn")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 566.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.03129335, 0.099569954, 0.0835458, 1)
+
+[node name="DiceParticles" type="Control" parent="CanvasLayer/Control" unique_id=1504804432]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+
+[node name="Dice6" type="CPUParticles2D" parent="CanvasLayer/Control/DiceParticles" unique_id=526776311]
+position = Vector2(0, -80)
+amount = 10
+texture = ExtResource("2_w44g7")
+lifetime = 3.0
+randomness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(1000, 1)
+spread = 153.99
+gravity = Vector2(0, 490)
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 0.1
+scale_amount_max = 0.3
+scale_amount_curve = SubResource("Curve_ojb7r")
+
+[node name="Dice5" type="CPUParticles2D" parent="CanvasLayer/Control/DiceParticles" unique_id=1589667885]
+position = Vector2(0, -80)
+amount = 10
+texture = ExtResource("3_cm266")
+lifetime = 3.0
+randomness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(1000, 1)
+spread = 153.99
+gravity = Vector2(0, 490)
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 0.1
+scale_amount_max = 0.3
+scale_amount_curve = SubResource("Curve_ojb7r")
+
+[node name="Dice4" type="CPUParticles2D" parent="CanvasLayer/Control/DiceParticles" unique_id=1102348143]
+position = Vector2(0, -80)
+amount = 10
+texture = ExtResource("4_g8g3n")
+lifetime = 3.0
+randomness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(1000, 1)
+spread = 153.99
+gravity = Vector2(0, 490)
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 0.1
+scale_amount_max = 0.3
+scale_amount_curve = SubResource("Curve_ojb7r")
+
+[node name="Dice3" type="CPUParticles2D" parent="CanvasLayer/Control/DiceParticles" unique_id=154984250]
+position = Vector2(0, -80)
+amount = 10
+texture = ExtResource("5_8u0te")
+lifetime = 3.0
+randomness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(1000, 1)
+spread = 153.99
+gravity = Vector2(0, 490)
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 0.1
+scale_amount_max = 0.3
+scale_amount_curve = SubResource("Curve_ojb7r")
+
+[node name="Dice2" type="CPUParticles2D" parent="CanvasLayer/Control/DiceParticles" unique_id=1628931646]
+position = Vector2(0, -80)
+amount = 10
+texture = ExtResource("6_oiatc")
+lifetime = 3.0
+randomness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(1000, 1)
+spread = 153.99
+gravity = Vector2(0, 490)
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 0.1
+scale_amount_max = 0.3
+scale_amount_curve = SubResource("Curve_ojb7r")
+
+[node name="Dice1" type="CPUParticles2D" parent="CanvasLayer/Control/DiceParticles" unique_id=186007350]
+position = Vector2(0, -80)
+amount = 10
+texture = ExtResource("7_mg3m2")
+lifetime = 3.0
+randomness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(1000, 1)
+spread = 153.99
+gravity = Vector2(0, 490)
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 0.1
+scale_amount_max = 0.3
+scale_amount_curve = SubResource("Curve_ojb7r")
+
+[node name="Wheel" type="Control" parent="CanvasLayer/Control" unique_id=753376667]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 255.0
+offset_top = -20.0
+offset_right = 295.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+offset_transform_enabled = true
+offset_transform_position = Vector2(20, 20)
+mouse_filter = 2
+
+[node name="Shine" type="ColorRect" parent="CanvasLayer/Control/Wheel" unique_id=806378637]
+material = SubResource("ShaderMaterial_0k4wn")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -291.03125
+offset_top = -291.03125
+offset_right = 291.03125
+offset_bottom = 291.03125
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(-20, -20)
+mouse_filter = 2
+
+[node name="Wheel Stand2" type="TextureRect" parent="CanvasLayer/Control/Wheel" unique_id=2071699625]
+modulate = Color(0, 0, 0, 0.45490196)
+layout_mode = 0
+offset_left = -131.0
+offset_top = 44.0
+offset_right = 130.0
+offset_bottom = 305.0
+mouse_filter = 2
+texture = ExtResource("3_qe12f")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Wheel Stand" type="TextureRect" parent="CanvasLayer/Control/Wheel" unique_id=62580201]
+layout_mode = 0
+offset_left = -131.0
+offset_top = 38.0
+offset_right = 130.0
+offset_bottom = 299.0
+mouse_filter = 2
+texture = ExtResource("3_qe12f")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Wheel Particles" type="CPUParticles2D" parent="CanvasLayer/Control/Wheel" unique_id=565322878]
+position = Vector2(20, 20)
+emitting = false
+amount = 130
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 29.94
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 500)
+initial_velocity_min = 100.0
+initial_velocity_max = 1000.0
+scale_amount_min = 10.0
+scale_amount_max = 20.0
+scale_amount_curve = SubResource("Curve_j5v2v")
+color = Color(0.8221153, 0.4247615, 0.48800993, 1)
+color_ramp = SubResource("Gradient_iotk1")
+
+[node name="Wheel Particles2" type="CPUParticles2D" parent="CanvasLayer/Control/Wheel" unique_id=1897678006]
+position = Vector2(20, 68)
+emitting = false
+amount = 130
+lifetime = 1.5
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+lifetime_randomness = 0.63
+emission_shape = 1
+emission_sphere_radius = 128.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 1000)
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+scale_amount_min = 20.0
+scale_amount_max = 30.0
+scale_amount_curve = SubResource("Curve_j5v2v")
+color = Color(0.49505776, 0.2059603, 0.25838616, 1)
+color_ramp = SubResource("Gradient_iotk1")
+
+[node name="Wheel Shadow" type="Sprite2D" parent="CanvasLayer/Control/Wheel" unique_id=2073975206]
+modulate = Color(0, 0, 0, 0.42745098)
+position = Vector2(0, 8)
+scale = Vector2(0.404, 0.404)
+texture = ExtResource("4_8qtwp")
+
+[node name="Spinning Stuff" type="Node2D" parent="CanvasLayer/Control/Wheel" unique_id=1610716542]
+scale = Vector2(0.4, 0.4)
+
+[node name="Empty Wheel" type="Sprite2D" parent="CanvasLayer/Control/Wheel/Spinning Stuff" unique_id=1176782827]
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("4_8qtwp")
+
+[node name="Piece 1" parent="CanvasLayer/Control/Wheel/Spinning Stuff/Empty Wheel" unique_id=275251851 instance=ExtResource("5_dy7ct")]
+rotation = -0.00030642768
+
+[node name="Piece 2" parent="CanvasLayer/Control/Wheel/Spinning Stuff/Empty Wheel" unique_id=342628153 instance=ExtResource("5_dy7ct")]
+rotation = 1.0471976
+
+[node name="Piece 3" parent="CanvasLayer/Control/Wheel/Spinning Stuff/Empty Wheel" unique_id=753283350 instance=ExtResource("5_dy7ct")]
+rotation = 2.0943952
+
+[node name="Piece 4" parent="CanvasLayer/Control/Wheel/Spinning Stuff/Empty Wheel" unique_id=1090440285 instance=ExtResource("5_dy7ct")]
+rotation = 3.1415927
+
+[node name="Piece 5" parent="CanvasLayer/Control/Wheel/Spinning Stuff/Empty Wheel" unique_id=615847810 instance=ExtResource("5_dy7ct")]
+rotation = 4.1887903
+
+[node name="Piece 6" parent="CanvasLayer/Control/Wheel/Spinning Stuff/Empty Wheel" unique_id=1198911682 instance=ExtResource("5_dy7ct")]
+rotation = 5.2359877
+
+[node name="Center Piece" type="Sprite2D" parent="CanvasLayer/Control/Wheel" unique_id=2111500236]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("6_0o4t1")
+
+[node name="Main" type="MarginContainer" parent="CanvasLayer/Control" unique_id=1926077886]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 549.0
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/Main" unique_id=949482041]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/Main/VBoxContainer" unique_id=1214929655]
+layout_mode = 2
+texture = ExtResource("7_qe12f")
+expand_mode = 5
+
+[node name="PlayButton" type="Button" parent="CanvasLayer/Control/Main/VBoxContainer" unique_id=1372898364]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.9529412, 0.85490197, 1)
+theme_override_colors/font_outline_color = Color(0.050980393, 0.11764706, 0.16862746, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("8_8qtwp")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_dy7ct")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0o4t1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0k4wn")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_j5v2v")
+text = "PLAY"
+
+[node name="CreditsButton" type="Button" parent="CanvasLayer/Control/Main/VBoxContainer" unique_id=1870889073]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.9529412, 0.85490197, 1)
+theme_override_colors/font_outline_color = Color(0.050980393, 0.11764706, 0.16862746, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("8_8qtwp")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_dy7ct")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0o4t1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0k4wn")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_j5v2v")
+text = "CREDITS"
+
+[node name="QuitButton" type="Button" parent="CanvasLayer/Control/Main/VBoxContainer" unique_id=720669710]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.9529412, 0.85490197, 1)
+theme_override_colors/font_outline_color = Color(0.050980393, 0.11764706, 0.16862746, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("8_8qtwp")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_dy7ct")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0o4t1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0k4wn")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_j5v2v")
+text = "QUIT"
+
+[node name="Credits" type="MarginContainer" parent="CanvasLayer/Control" unique_id=1613812414]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = -550.0
+offset_right = -1.0
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/Credits" unique_id=1579358470]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/Credits/VBoxContainer" unique_id=1854085746]
+layout_mode = 2
+texture = ExtResource("7_qe12f")
+expand_mode = 5
+
+[node name="Made By" type="Label" parent="CanvasLayer/Control/Credits/VBoxContainer" unique_id=658133047]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+text = "Made by DorcDev"
+label_settings = SubResource("LabelSettings_g8g3n")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Icons By" type="Label" parent="CanvasLayer/Control/Credits/VBoxContainer" unique_id=78750460]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+text = "Icons and Sound Effects by Kenney"
+label_settings = SubResource("LabelSettings_g8g3n")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="MusicAndBy" type="Label" parent="CanvasLayer/Control/Credits/VBoxContainer" unique_id=1893475931]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+text = "Music and all remaning assets by DorcDev"
+label_settings = SubResource("LabelSettings_g8g3n")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Made For" type="Label" parent="CanvasLayer/Control/Credits/VBoxContainer" unique_id=1082330762]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+text = "Made for the Very Serious Juniper Dev Game Jam"
+label_settings = SubResource("LabelSettings_g8g3n")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="BackButton" type="Button" parent="CanvasLayer/Control/Credits/VBoxContainer" unique_id=668104135]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.9529412, 0.85490197, 1)
+theme_override_colors/font_outline_color = Color(0.050980393, 0.11764706, 0.16862746, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("8_8qtwp")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_dy7ct")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0o4t1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0k4wn")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_j5v2v")
+text = "BACK"
+
+[node name="TransitionLayer" type="ColorRect" parent="CanvasLayer" unique_id=672418314]
+material = ExtResource("16_g8g3n")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+color = Color(0.098682486, 0.020091685, 0.03310029, 1)
+
+[node name="TransitionPlayer" type="AnimationPlayer" parent="." unique_id=664832465]
+root_node = NodePath("../CanvasLayer")
+libraries/ = SubResource("AnimationLibrary_g8g3n")
+
+[connection signal="pressed" from="CanvasLayer/Control/Main/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Main/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Main/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Credits/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

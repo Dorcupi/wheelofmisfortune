@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="WheelSegment" format=3 uid="uid://bqtsxowlc7xne"]
+
+[ext_resource type="Script" uid="uid://bxn36dbjtdfd6" path="res://scripts/resources/wheelsegment.gd" id="1_v0aws"]
+[ext_resource type="Texture2D" uid="uid://d2s2qklegvq2o" path="res://assets/wheel/segments/d2.5.png" id="2_v0aws"]
+
+[resource]
+script = ExtResource("1_v0aws")
+texture = ExtResource("2_v0aws")
+static_multiply_modifier = 0.4
+rarity = 6
+metadata/_custom_type_script = "uid://bxn36dbjtdfd6"
