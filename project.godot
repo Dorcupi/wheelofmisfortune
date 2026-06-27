@@ -20,6 +20,7 @@ run/main_scene="uid://vay3wmexkmfl"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 boot_splash/bg_color=Color(0.09803922, 0.019607844, 0.03137255, 1)
 config/icon="uid://duls1fxkohsdi"
+config/tags=PackedStringArray("2d", "game_jam", "minigame")
 
 [audio]
 
