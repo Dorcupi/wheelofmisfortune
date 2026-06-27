@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="MeTube Casino"
+config/description="After being a famous MeTuber for many years, your prime has gone and you're now seriously struggling with your last $12.50. That is, until the very serious MeTube Casino opens! Made specifically for the one hit wonders who had their time on MeTube and are now broke, they can now try to get their money back the same they all tried to get stuff before, spinner wheels. The rules of the casino are simple, once you enter you can not leave, unless you either:
+- get kicked out for going into debt for thirty seconds, or
+- get $100,000 and escape with your life
+Do you have what it takes to make money, upgrade your wheel to get money faster, and escape with your life and $100,000, or will you end up bankrupt like all the other failed MeTubers who have tried."
+run/main_scene="uid://vay3wmexkmfl"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 boot_splash/bg_color=Color(0.09803922, 0.019607844, 0.03137255, 1)
-config/icon="res://icon.svg"
+config/icon="uid://duls1fxkohsdi"
 
 [audio]
 
@@ -22,6 +27,7 @@ buses/default_bus_layout="uid://dudinid7opg2l"
 [autoload]
 
 Screenshots="*uid://bljdk7ctqona7"
+Overheader="*uid://cklsyb80n8idi"
 
 [display]
 

@@ -26,9 +26,9 @@ func generate_message() -> String:
 	if static_multiply_modifier != 1:
 		if -1 < static_multiply_modifier and static_multiply_modifier < 1 and static_multiply_modifier != 0:
 			var division_number: float = 1 / static_multiply_modifier
-			multiply_string = "/ %.2f" % division_number
+			multiply_string = "/%.2f" % division_number
 		else:
-			multiply_string = "* %.2f" % static_multiply_modifier
+			multiply_string = "*%.2f" % static_multiply_modifier
 	if add_string == "" and multiply_string == "":
 		final_string = "+0"
 	else:

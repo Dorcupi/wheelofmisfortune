@@ -35,7 +35,6 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if mouse_in and mouse_pressed and segmentData and root.game_state == root.GAME_STATE.GAMBLING:
 		if is_equal_approx(deletion_time, 0):
-			print("0")
 			audio_stream_player.stop()
 			audio_stream_player.pitch_scale = randf_range(0.8, 1.2)
 			audio_stream_player.play()
@@ -43,17 +42,14 @@ func _physics_process(delta: float) -> void:
 		if not cpu_particles_2d.emitting:
 			cpu_particles_2d.emitting = true
 		if abs(deletion_time - 0.75) <= 0.01:
-			print("0.75")
 			audio_stream_player.stop()
 			audio_stream_player.pitch_scale = randf_range(0.8, 1.2)
 			audio_stream_player.play()
 		if abs(deletion_time - 1.5) <= 0.01:
-			print("1.5")
 			audio_stream_player.stop()
 			audio_stream_player.pitch_scale = randf_range(0.8, 1.2)
 			audio_stream_player.play()
 		if abs(deletion_time - 2.25) <= 0.01:
-			print("2.25")
 			audio_stream_player.stop()
 			audio_stream_player.pitch_scale = randf_range(0.8, 1.2)
 			audio_stream_player.play()
@@ -87,7 +83,6 @@ func start_shine() -> void:
 
 func stop_shine() -> void:
 	if is_shining:
-		print("STOPPING SHINE")
 		tween = get_tree().create_tween()
 		tween.tween_method(set_shine, 1.5, 0.0, 1.5).set_trans(Tween.TRANS_EXPO)
 		tween.tween_callback(tween.kill)

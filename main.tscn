@@ -27,16 +27,15 @@
 [ext_resource type="Resource" uid="uid://cvmy6eqw6e62r" path="res://resources/wheel_segments/+6.tres" id="17_ryguw"]
 [ext_resource type="Resource" uid="uid://duxusce6bky2g" path="res://resources/wheel_segments/+8.tres" id="18_d13ii"]
 [ext_resource type="Resource" uid="uid://sktovyxefk66" path="res://resources/wheel_segments/-3.tres" id="19_1u8w0"]
+[ext_resource type="Texture2D" uid="uid://d3p7fdxqaittu" path="res://assets/new_person/body.png" id="19_gx4rg"]
 [ext_resource type="Resource" uid="uid://l6yh8vvf3atv" path="res://resources/wheel_segments/-4.tres" id="20_0odxb"]
+[ext_resource type="Texture2D" uid="uid://bd1qyt0w2cr77" path="res://assets/new_person/head.png" id="21_5dllo"]
 [ext_resource type="Resource" uid="uid://cl55c7r3f6gv1" path="res://resources/wheel_segments/-5.tres" id="21_lswn8"]
 [ext_resource type="Material" uid="uid://dyj8eairiftki" path="res://shaders/grid_transition.tres" id="22_ryguw"]
 [ext_resource type="Texture2D" uid="uid://dttplgd77sd8" path="res://assets/kenney_game-icons/PNG/White/2x/cross.png" id="23_1u8w0"]
 [ext_resource type="Texture2D" uid="uid://bgpmao47wg1rx" path="res://assets/thoughtbubble.png" id="24_0odxb"]
-[ext_resource type="Texture2D" uid="uid://do3kedcw377ce" path="res://assets/person/person_main.png" id="25_a6jrf"]
 [ext_resource type="Texture2D" uid="uid://buxaqm1vh2ndh" path="res://assets/thoughtconnector.png" id="25_kq58d"]
-[ext_resource type="Texture2D" uid="uid://v0owrle53sg4" path="res://assets/person/person_mouth.png" id="26_xuqvo"]
 [ext_resource type="Shader" uid="uid://qkx4gwtptmif" path="res://shaders/shake.gdshader" id="27_qsp4k"]
-[ext_resource type="Texture2D" uid="uid://c7h10hmurmxky" path="res://assets/person/person_hair.png" id="28_kq58d"]
 [ext_resource type="Shader" uid="uid://c5wh88eenvkb2" path="res://shaders/screenshake.gdshader" id="31_d2t1y"]
 [ext_resource type="AudioStream" uid="uid://ca6j3dod5r2t7" path="res://assets/sounds/person_talk.wav" id="31_seu75"]
 [ext_resource type="AudioStream" uid="uid://ce8x15nytjebj" path="res://assets/sounds/kenney_interface-sounds/Audio/scroll_004.ogg" id="32_htxhm"]
@@ -44,13 +43,40 @@
 [ext_resource type="AudioStream" uid="uid://cvlfuiok2kdm4" path="res://assets/sounds/kenney_music-jingles/Audio/Pizzicato jingles/jingles_PIZZI02.ogg" id="34_0rl1p"]
 [ext_resource type="AudioStream" uid="uid://sx8eljtc48ke" path="res://assets/sounds/Cartoon Poof Sound Effect.mp3" id="35_ok6jj"]
 [ext_resource type="AudioStream" uid="uid://babcqexopnvqi" path="res://assets/sounds/freesound_community-cash-register-purchase-87313.mp3" id="36_facbu"]
+[ext_resource type="Resource" uid="uid://32y0qitoki76" path="res://resources/wheel_segments/+10.tres" id="36_rnkwl"]
 [ext_resource type="AudioStream" uid="uid://drb3u3s2slp4p" path="res://assets/sounds/kenney_interface-sounds/Audio/drop_002.ogg" id="37_b1qrp"]
+[ext_resource type="Resource" uid="uid://dxja384usfcaw" path="res://resources/wheel_segments/x1.1.tres" id="37_vke2r"]
 [ext_resource type="AudioStream" uid="uid://u02lv7cgr6oo" path="res://assets/sounds/kenney_interface-sounds/Audio/confirmation_002.ogg" id="38_come4"]
+[ext_resource type="Resource" uid="uid://cqddmkpjjsqgu" path="res://resources/wheel_segments/x1.2.tres" id="38_uit24"]
 [ext_resource type="AudioStream" uid="uid://dk073f5kempra" path="res://assets/sounds/kenney_music-jingles/Audio/Pizzicato jingles/jingles_PIZZI16.ogg" id="39_0cp0l"]
+[ext_resource type="Resource" uid="uid://cik3tbiyc40uv" path="res://resources/wheel_segments/-8.tres" id="39_ruth0"]
 [ext_resource type="AudioStream" uid="uid://b12htfgd3wckl" path="res://assets/sounds/sergioproductions-cash-register-537208.mp3" id="40_d2t1y"]
+[ext_resource type="Resource" uid="uid://cwqjj214d2o0j" path="res://resources/wheel_segments/-10.tres" id="40_rm4vd"]
 [ext_resource type="AudioStream" uid="uid://eduptbsknae8" path="res://assets/sounds/Whoosh 2.mp3" id="41_0cp0l"]
+[ext_resource type="Resource" uid="uid://dfomuqc4luxdx" path="res://resources/wheel_segments/d1.1.tres" id="41_pjyto"]
 [ext_resource type="AudioStream" uid="uid://fm2q85fsgv0w" path="res://assets/sounds/Whoosh 4.mp3" id="42_0cp0l"]
+[ext_resource type="Resource" uid="uid://bq34n05toje0h" path="res://resources/wheel_segments/x1.3.tres" id="42_sm6fg"]
+[ext_resource type="Resource" uid="uid://c1ajhs3l7ev6s" path="res://resources/wheel_segments/x1.4.tres" id="43_b17eg"]
+[ext_resource type="Resource" uid="uid://bkt57i0g3ddxh" path="res://resources/wheel_segments/x1.5.tres" id="44_ntx8l"]
+[ext_resource type="Resource" uid="uid://dfmgi6gmh2i10" path="res://resources/wheel_segments/d1.2.tres" id="45_uatky"]
+[ext_resource type="Resource" uid="uid://ca2g5q6oy8hb0" path="res://resources/wheel_segments/d1.3.tres" id="46_rqtf5"]
+[ext_resource type="Resource" uid="uid://d2bo7lwn6jofn" path="res://resources/wheel_segments/d1.4.tres" id="47_1vm84"]
+[ext_resource type="Resource" uid="uid://c17aitu3kdrow" path="res://resources/wheel_segments/x2.tres" id="48_wu3dr"]
+[ext_resource type="Resource" uid="uid://dwhxjw0q6pxnh" path="res://resources/wheel_segments/+150.tres" id="49_cyx1q"]
 [ext_resource type="AudioStream" uid="uid://da1wl4opjd5wg" path="res://assets/sounds/kenney_music-jingles/Audio/Pizzicato jingles/jingles_PIZZI12.ogg" id="49_uypp3"]
+[ext_resource type="Resource" uid="uid://dutjemy22wmk7" path="res://resources/wheel_segments/+200.tres" id="50_0dhbp"]
+[ext_resource type="Resource" uid="uid://g0baxitcd536" path="res://resources/wheel_segments/d1.5.tres" id="51_jx0wj"]
+[ext_resource type="Resource" uid="uid://d0r8dyt000103" path="res://resources/wheel_segments/d2.tres" id="52_kkkcx"]
+[ext_resource type="Resource" uid="uid://bhft8hcrd4qo5" path="res://resources/wheel_segments/-150.tres" id="53_34ol3"]
+[ext_resource type="Resource" uid="uid://cdtj0ot6jgd8q" path="res://resources/wheel_segments/+500.tres" id="54_gx4rg"]
+[ext_resource type="Resource" uid="uid://bk8itmfvxiuf5" path="res://resources/wheel_segments/+750.tres" id="55_5dllo"]
+[ext_resource type="Resource" uid="uid://b0u3vooohs4ul" path="res://resources/wheel_segments/x3.tres" id="56_phcyf"]
+[ext_resource type="Resource" uid="uid://dni3hv4d73tm2" path="res://resources/wheel_segments/-200.tres" id="57_birbe"]
+[ext_resource type="Resource" uid="uid://d3v44aaur4qhn" path="res://resources/wheel_segments/-625.tres" id="58_f1p13"]
+[ext_resource type="Resource" uid="uid://bqtsxowlc7xne" path="res://resources/wheel_segments/d2.5.tres" id="59_4obbf"]
+[ext_resource type="AudioStream" uid="uid://bskwytdtn7tli" path="res://assets/sounds/8footdino_on_scratch-alarm-301729.mp3" id="70_cyx1q"]
+[ext_resource type="AudioStream" uid="uid://20bap2b543c5" path="res://assets/sounds/kenney_music-jingles/Audio/Pizzicato jingles/jingles_PIZZI01.ogg" id="77_5dllo"]
+[ext_resource type="AudioStream" uid="uid://cx8kudy35im5d" path="res://assets/sounds/kenney_music-jingles/Audio/Pizzicato jingles/jingles_PIZZI10.ogg" id="78_phcyf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7mycd"]
 shader = ExtResource("1_lquwl")
@@ -69,9 +95,9 @@ point_count = 2
 
 [sub_resource type="LabelSettings" id="LabelSettings_lswn8"]
 font = ExtResource("4_1bvp3")
-font_size = 25
+font_size = 17
 font_color = Color(1, 0.9529412, 0.85490197, 1)
-outline_size = 12
+outline_size = 8
 outline_color = Color(0.050980393, 0.11764706, 0.16862746, 1)
 shadow_size = 3
 shadow_color = Color(0, 0, 0, 0.74509805)
@@ -83,7 +109,7 @@ shader_parameter/mouth_height = 10.000000475
 shader_parameter/talk_speed = 17.50000083125
 shader_parameter/talk_intensity = 0.0
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qtftl"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_wu3dr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ysgfx"]
 shader = ExtResource("14_gngh3")
@@ -95,7 +121,7 @@ shader_parameter/filter_magnitude = 1.0
 shader_parameter/filter_minv = 0.75
 shader_parameter/cut_inner_radius = 0.1
 shader_parameter/color = Color(1, 1, 1, 1)
-shader_parameter/NOISE = SubResource("NoiseTexture2D_qtftl")
+shader_parameter/NOISE = SubResource("NoiseTexture2D_wu3dr")
 shader_parameter/NOISE_speed = Vector2(0, 0)
 shader_parameter/NOISE_magnitude = 0.10000000475
 
@@ -140,6 +166,74 @@ outline_color = Color(0.050980393, 0.11764706, 0.16862746, 1)
 shadow_size = 20
 shadow_color = Color(0, 0, 0, 0.7254902)
 shadow_offset = Vector2(0, 10)
+
+[sub_resource type="LabelSettings" id="LabelSettings_uypp3"]
+font = ExtResource("4_1bvp3")
+font_size = 13
+font_color = Color(1, 0.9529412, 0.85490197, 1)
+outline_color = Color(0.050980393, 0.11764706, 0.16862746, 1)
+shadow_size = 20
+shadow_offset = Vector2(0, 6.52)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_birbe"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.433302, 0, 0.14407432, 1)
+border_width_left = 4
+border_width_right = 4
+border_color = Color(0.050980393, 0.11764706, 0.16862746, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f1p13"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.64705884, 0, 0.23137255, 1)
+border_width_left = 4
+border_width_right = 4
+border_color = Color(0.050980393, 0.11764706, 0.16862746, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4obbf"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.64705884, 0, 0.23137255, 0.7647059)
+border_width_left = 4
+border_width_right = 4
+border_color = Color(0.050980393, 0.11764706, 0.16862746, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ovcoh"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.28235295, 0.1764706, 0.21176471, 0.8980392)
+border_width_left = 4
+border_width_right = 4
+border_color = Color(0.050980393, 0.11764706, 0.16862746, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 5
 
 [sub_resource type="Animation" id="Animation_lswn8"]
 length = 0.001
@@ -229,7 +323,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_1u8w0"]
@@ -293,13 +387,13 @@ _data = {
 &"out": SubResource("Animation_0odxb")
 }
 
-[node name="Node2D" type="Node2D" unique_id=1128234424 node_paths=PackedStringArray("background", "screen_shake", "segment_spots", "shop_items", "spinning_wheel", "wheel_particles", "wheel_particles_2", "transition_player", "side_panel_player", "side_panel", "side_panel_button", "talk_timer", "person_mouth", "talk_label", "money", "talk_player", "scroll_player", "result_player_1", "result_player_2", "result_player_3", "result_player_4", "collect_player_1", "collect_player_2", "transition_audio_player", "transition_back_audio_player", "buy_player_1", "buy_player_2", "delete_slice_player_1", "delete_slice_player_2", "spin_counter_spawner", "dice_particles", "shop_box_container", "inventory_box_container")]
+[node name="Node2D" type="Node2D" unique_id=1128234424 node_paths=PackedStringArray("background", "screen_shake", "segment_spots", "shop_items", "spinning_wheel", "wheel_particles", "wheel_particles_2", "transition_player", "side_panel_player", "side_panel", "side_panel_button", "talk_timer", "person_mouth", "talk_label", "money", "spin_button", "talk_player", "scroll_player", "result_player_1", "result_player_2", "result_player_3", "result_player_4", "collect_player_1", "collect_player_2", "transition_audio_player", "transition_back_audio_player", "buy_player_1", "buy_player_2", "delete_slice_player_1", "delete_slice_player_2", "alarm_audio_player", "fail_audio_player", "win_audio_player", "spin_counter_spawner", "dice_particles", "shop_box_container", "inventory_box_container", "ascend_button")]
 script = ExtResource("1_ycdy4")
 owned_segments = Array[ExtResource("4_272bh")]([ExtResource("6_kek77"), ExtResource("4_5vw27"), ExtResource("4_7mycd"), ExtResource("6_4c57u"), ExtResource("7_dg77c"), ExtResource("8_w48qg")])
 background = NodePath("CanvasLayer/Control/Background")
 screen_shake = NodePath("CanvasLayer2/ScreenShake")
 segment_spots = [NodePath("CanvasLayer/Control/Wheel/Spinning Stuff/Empty Wheel/Piece 6"), NodePath("CanvasLayer/Control/Wheel/Spinning Stuff/Empty Wheel/Piece 1"), NodePath("CanvasLayer/Control/Wheel/Spinning Stuff/Empty Wheel/Piece 2"), NodePath("CanvasLayer/Control/Wheel/Spinning Stuff/Empty Wheel/Piece 3"), NodePath("CanvasLayer/Control/Wheel/Spinning Stuff/Empty Wheel/Piece 4"), NodePath("CanvasLayer/Control/Wheel/Spinning Stuff/Empty Wheel/Piece 5")]
-shop_items = [NodePath("CanvasLayer/Control/SidePanel/Animate/SplitContainer/Shop/MarginContainer/VBoxContainer/RarityII")]
+shop_items = [NodePath("CanvasLayer/Control/SidePanel/Animate/SplitContainer/Shop/MarginContainer/VBoxContainer/RarityII"), NodePath("CanvasLayer/Control/SidePanel/Animate/SplitContainer/Shop/MarginContainer/VBoxContainer/RarityIII"), NodePath("CanvasLayer/Control/SidePanel/Animate/SplitContainer/Shop/MarginContainer/VBoxContainer/RarityIV"), NodePath("CanvasLayer/Control/SidePanel/Animate/SplitContainer/Shop/MarginContainer/VBoxContainer/RarityV"), NodePath("CanvasLayer/Control/SidePanel/Animate/SplitContainer/Shop/MarginContainer/VBoxContainer/RarityVI")]
 spinning_wheel = NodePath("CanvasLayer/Control/Wheel/Spinning Stuff")
 wheel_particles = NodePath("CanvasLayer/Control/Wheel/Wheel Particles")
 wheel_particles_2 = NodePath("CanvasLayer/Control/Wheel/Wheel Particles2")
@@ -311,6 +405,7 @@ talk_timer = NodePath("TalkTimer")
 person_mouth = NodePath("CanvasLayer/Control/PlayerArea/Person/Mouth")
 talk_label = NodePath("CanvasLayer/Control/PlayerArea/ThoughBubble/MarginContainer/Label")
 money = NodePath("CanvasLayer/Control/Money")
+spin_button = NodePath("CanvasLayer/Control/SpinButton")
 wheel_max_acceleration_speed = 16.0
 wheel_maximum_time_spinning = 2.0
 wheel_maximum_loops_around = 2
@@ -328,10 +423,14 @@ buy_player_1 = NodePath("BuyPlayer1")
 buy_player_2 = NodePath("BuyPlayer2")
 delete_slice_player_1 = NodePath("DeleteSlicePlayer1")
 delete_slice_player_2 = NodePath("DeleteSlicePlayer2")
+alarm_audio_player = NodePath("AlarmAudioPlayer")
+fail_audio_player = NodePath("FailAudioPlayer")
+win_audio_player = NodePath("WinAudioPlayer")
 spin_counter_spawner = NodePath("CanvasLayer/Control/Wheel/SpinCounterSpawner")
 dice_particles = NodePath("CanvasLayer/Control/DiceParticles")
 shop_box_container = NodePath("CanvasLayer/Control/SidePanel/Animate/SplitContainer/Shop/MarginContainer/VBoxContainer")
-inventory_box_container = NodePath("CanvasLayer/Control/SidePanel/Animate/SplitContainer/Inventory/MarginContainer/VBoxContainer")
+inventory_box_container = NodePath("CanvasLayer/Control/SidePanel/Animate/SplitContainer/Inventory/MarginContainer/Orderer/VBoxContainer/GridContainer")
+ascend_button = NodePath("CanvasLayer/Control/SidePanel/Animate/SplitContainer/Inventory/MarginContainer/Orderer/AscendButton")
 metadata/_edit_vertical_guides_ = [576.0, 1142.0, 1152.0]
 metadata/_edit_horizontal_guides_ = [324.0]
 
@@ -535,40 +634,6 @@ offset_right = -88.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Hair Shadow" type="TextureRect" parent="CanvasLayer/Control/PlayerArea/Person" unique_id=1141460534]
-modulate = Color(0, 0, 0, 0.43137255)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -17.0
-offset_top = -10.765717
-offset_right = -17.0
-offset_bottom = -3.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1.1, 1.1)
-texture = ExtResource("28_kq58d")
-expand_mode = 5
-stretch_mode = 6
-
-[node name="Main Shadow" type="TextureRect" parent="CanvasLayer/Control/PlayerArea/Person" unique_id=570970708]
-modulate = Color(0, 0, 0, 0.48235294)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -15.0
-offset_top = -31.765717
-offset_right = -15.0
-offset_bottom = -24.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1.1, 1.1)
-texture = ExtResource("25_a6jrf")
-expand_mode = 5
-stretch_mode = 6
-
 [node name="Main" type="TextureRect" parent="CanvasLayer/Control/PlayerArea/Person" unique_id=1273379280]
 layout_mode = 1
 anchors_preset = 15
@@ -576,7 +641,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("25_a6jrf")
+texture = ExtResource("19_gx4rg")
 expand_mode = 5
 stretch_mode = 6
 
@@ -588,18 +653,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("26_xuqvo")
-expand_mode = 5
-stretch_mode = 6
-
-[node name="Hair" type="TextureRect" parent="CanvasLayer/Control/PlayerArea/Person" unique_id=854007722]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("28_kq58d")
+texture = ExtResource("21_5dllo")
 expand_mode = 5
 stretch_mode = 6
 
@@ -905,9 +959,41 @@ vertical_alignment = 1
 layout_mode = 2
 title = "Rarity II"
 description = "+4, +6, +8, as well as unlucky subtracters like -3, -4, and -5."
-price = 15.0
+price = 14.99
 good_items = Array[ExtResource("4_272bh")]([ExtResource("16_getpj"), ExtResource("17_ryguw"), ExtResource("18_d13ii")])
 bad_items = Array[ExtResource("4_272bh")]([ExtResource("19_1u8w0"), ExtResource("20_0odxb"), ExtResource("21_lswn8")])
+
+[node name="RarityIII" parent="CanvasLayer/Control/SidePanel/Animate/SplitContainer/Shop/MarginContainer/VBoxContainer" unique_id=1219759511 instance=ExtResource("15_vivmo")]
+layout_mode = 2
+title = "Rarity III"
+description = "Introduce multiplication and exponentially increase your score! Or divide it and lose it all."
+price = 36.99
+good_items = Array[ExtResource("4_272bh")]([ExtResource("36_rnkwl"), ExtResource("37_vke2r"), ExtResource("38_uit24")])
+bad_items = Array[ExtResource("4_272bh")]([ExtResource("39_ruth0"), ExtResource("40_rm4vd"), ExtResource("41_pjyto")])
+
+[node name="RarityIV" parent="CanvasLayer/Control/SidePanel/Animate/SplitContainer/Shop/MarginContainer/VBoxContainer" unique_id=1407013436 instance=ExtResource("15_vivmo")]
+layout_mode = 2
+title = "Rarity IV"
+description = "Multiply and increase your score by 1.3, 1.4, and 1.5, but also get divided by 1.2, 1.3, and 1.4."
+price = 95.99
+good_items = Array[ExtResource("4_272bh")]([ExtResource("42_sm6fg"), ExtResource("43_b17eg"), ExtResource("44_ntx8l")])
+bad_items = Array[ExtResource("4_272bh")]([ExtResource("45_uatky"), ExtResource("46_rqtf5"), ExtResource("47_1vm84")])
+
+[node name="RarityV" parent="CanvasLayer/Control/SidePanel/Animate/SplitContainer/Shop/MarginContainer/VBoxContainer" unique_id=1065505075 instance=ExtResource("15_vivmo")]
+layout_mode = 2
+title = "Rarity V"
+description = "Muliply your score by 2, add 150, and 200, as well as divide it by 1.5 and 2, and lose 150."
+price = 389.99
+good_items = Array[ExtResource("4_272bh")]([ExtResource("48_wu3dr"), ExtResource("49_cyx1q"), ExtResource("50_0dhbp")])
+bad_items = Array[ExtResource("4_272bh")]([ExtResource("51_jx0wj"), ExtResource("52_kkkcx"), ExtResource("53_34ol3")])
+
+[node name="RarityVI" parent="CanvasLayer/Control/SidePanel/Animate/SplitContainer/Shop/MarginContainer/VBoxContainer" unique_id=1901847828 instance=ExtResource("15_vivmo")]
+layout_mode = 2
+title = "Rarity VI"
+description = "Muliply your score by 2, add 150, and 200, as well as divide it by 1.5 and 2, and lose 150."
+price = 976.89
+good_items = Array[ExtResource("4_272bh")]([ExtResource("54_gx4rg"), ExtResource("55_5dllo"), ExtResource("56_phcyf")])
+bad_items = Array[ExtResource("4_272bh")]([ExtResource("57_birbe"), ExtResource("58_f1p13"), ExtResource("59_4obbf")])
 
 [node name="Upgrades" type="Label" parent="CanvasLayer/Control/SidePanel/Animate/SplitContainer/Shop/MarginContainer/VBoxContainer" unique_id=1849438539]
 layout_mode = 2
@@ -928,17 +1014,48 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/SidePanel/Animate/SplitContainer/Inventory/MarginContainer" unique_id=281080140]
+[node name="Orderer" type="VBoxContainer" parent="CanvasLayer/Control/SidePanel/Animate/SplitContainer/Inventory/MarginContainer" unique_id=2072152916]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/SidePanel/Animate/SplitContainer/Inventory/MarginContainer/Orderer" unique_id=281080140]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Inventory" type="Label" parent="CanvasLayer/Control/SidePanel/Animate/SplitContainer/Inventory/MarginContainer/VBoxContainer" unique_id=969947710]
+[node name="Inventory" type="Label" parent="CanvasLayer/Control/SidePanel/Animate/SplitContainer/Inventory/MarginContainer/Orderer/VBoxContainer" unique_id=969947710]
 layout_mode = 2
 text = "Inventory"
 label_settings = SubResource("LabelSettings_w48qg")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Description" type="Label" parent="CanvasLayer/Control/SidePanel/Animate/SplitContainer/Inventory/MarginContainer/Orderer/VBoxContainer" unique_id=1854587206]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+text = "Remove slices by pressing and holding on them for three seconds."
+label_settings = SubResource("LabelSettings_uypp3")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Control/SidePanel/Animate/SplitContainer/Inventory/MarginContainer/Orderer/VBoxContainer" unique_id=1471272064]
+layout_mode = 2
+columns = 2
+
+[node name="AscendButton" type="Button" parent="CanvasLayer/Control/SidePanel/Animate/SplitContainer/Inventory/MarginContainer/Orderer" unique_id=281126417]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 0.9529412, 0.85490197, 1)
+theme_override_colors/font_outline_color = Color(0.050980393, 0.11764706, 0.16862746, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("4_1bvp3")
+theme_override_font_sizes/font_size = 19
+theme_override_styles/normal = SubResource("StyleBoxFlat_birbe")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_f1p13")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4obbf")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_ovcoh")
+text = "ASCEND"
 
 [node name="Control" type="Control" parent="CanvasLayer/Control/SidePanel/Animate" unique_id=1231104661]
 layout_mode = 1
@@ -1080,9 +1197,26 @@ volume_db = -10.0
 pitch_scale = 0.8
 bus = &"Sound Effects"
 
+[node name="AlarmAudioPlayer" type="AudioStreamPlayer" parent="." unique_id=1970509083]
+stream = ExtResource("70_cyx1q")
+volume_db = -30.0
+bus = &"Sound Effects"
+
+[node name="FailAudioPlayer" type="AudioStreamPlayer" parent="." unique_id=1674022197]
+stream = ExtResource("77_5dllo")
+volume_db = -8.0
+bus = &"Sound Effects"
+
+[node name="WinAudioPlayer" type="AudioStreamPlayer" parent="." unique_id=396241218]
+stream = ExtResource("78_phcyf")
+volume_db = -8.0
+bus = &"Sound Effects"
+
 [connection signal="pressed" from="CanvasLayer/Control/SpinButton" to="." method="_on_spin_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/SidePanelButton/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/SidePanel/Animate/SplitContainer/Inventory/MarginContainer/Orderer/AscendButton" to="." method="_on_ascend_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/SidePanel/Animate/Control/TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="timeout" from="TalkTimer" to="." method="_on_talk_timer_timeout"]
 [connection signal="finished" from="TalkPlayer" to="." method="_on_audio_stream_player_finished"]
 [connection signal="finished" from="ScrollPlayer" to="." method="_on_scroll_player_finished"]
+[connection signal="finished" from="AlarmAudioPlayer" to="." method="_on_alarm_audio_player_finished"]
